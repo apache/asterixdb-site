@@ -125,8 +125,7 @@
   <li>
     <p>Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</p>
 
-    <pre><code>     cd $HOME/workspace/
-     git clone https://github.com/apache/incubator-asterixdb/
+    <pre><code>     git clone https://github.com/apache/incubator-asterixdb/
      git clone https://github.com/apache/incubator-asterixdb-hyracks/
 </code></pre>
 
@@ -135,23 +134,23 @@
   <li>
     <p>Go to the hyracks and install it’s artifacts to the local Maven repository by executing the following commands:</p>
 
-    <pre><code>     cd $HOME/workspace/hyracks/
+    <pre><code>     cd incubator-asterixdb-hyracks/
      mvn install -DskipTests
 </code></pre>
   </li>
   <li>
     <p>Go to the asterixdb folder and perform the same action:</p>
 
-    <pre><code>      cd $HOME/workspace/asterixdb/asterix-maven-plugins/
+    <pre><code>      cd ../incubator-asterixdb/asterix-maven-plugins/
       mvn install -DskipTests
-      cd $HOME/workspace/asterixdb/
+      cd ../
       mvn install -DskipTests
 </code></pre>
   </li>
   <li>In Eclipse, import hyracks as an existing Maven Project.
     <ul>
       <li><code>File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects -&gt; Next</code></li>
-      <li>Specify the Root directory as <code>$HOME/workspace/hyracks</code> and then click Next until Finish is enabled.</li>
+      <li>Specify the Root directory as <code>incubator-asterixdb-hyracks</code> and then click Next until Finish is enabled.</li>
       <li>If Eclipse tries to install the <code>m2e</code> (Maven To Eclipse) connector, let it do so.</li>
       <li>There might be some plugin errors; however, that is not a big deal. Wait until the job finishes.</li>
       <li>Then, click Finish.</li>
@@ -171,7 +170,7 @@
         <ul>
           <li>Right click asterix-algebra. Click Build Path and Configure Build Path. Click Add Folder.</li>
           <li>Under the <code>target -&gt; generated sources</code>, check the parent folder of the <code>edu</code> folder and click OK.</li>
-          <li>For example, if the directory structure is “target - generated-sources - javacc - edu - uci …”, check the javacc directory and click OK. Then X mark will dissapear.</li>
+          <li>For example, if the directory structure is “target - generated-sources - javacc - org - apache …”, check the javacc directory and click OK. Then X mark will dissapear.</li>
         </ul>
       </li>
       <li>Repeat this step to all projects which show a red X mark except “asterix-fuzzyjoin” and “asterix-transactions”.</li>
@@ -196,7 +195,9 @@
 
 <h2 id="signing-up-for-gerrit">Signing Up for Gerrit</h2>
 
-<p>You should only need to perform the following steps once.</p>
+<p>First, to contribute patches to AsterixDB, you should have an ICLA on file with the Apache Software Foundation.
+For details see the ASF website <a href="https://www.apache.org/dev/new-committers-guide.html#cla">here</a>
+You should only need to perform the following steps once.</p>
 
 <p>Our Gerrit server is <a href="https://asterix-gerrit.ics.uci.edu/">here</a></p>
 
