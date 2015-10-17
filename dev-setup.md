@@ -15,6 +15,19 @@ We warmly welcome any contributions to the AsterixDB or related (Hyracks, Pregel
 
 ---
 
+## Master snapshots
+If you are a developer simply looking for a snapshot of the latest development version of AsterixDB to test out your application that is based on top of AsterixDB, snapshots from the latest successful push to our master branch are available below. These are non ASF-release, automatic builds.
+
+### Managix Installer
+<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.UNSTABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
+
+### YARN Installer
+<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_YARN_URL }}" role="button">Download AsterixDB {{ site.UNSTABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
+
+
+
+---
+
 ## Setting up an Asterix Development environment in Eclipse
 
 ### Prerequisites

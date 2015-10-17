@@ -154,13 +154,14 @@ AsterixDB extends JSON datatypes with support for spatial and temporal data.
 
 <div class="row">
 <div class="col-md-6" markdown="1">
+<!--
 ### Download
 You can download the latest stable release here.
 
 <p><a class="btn btn-md btn-success" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i></a></p>
 
 See the installation [guide]({{ site.DOCS_BASE_URL }}/install.html), and check out [AsterixDB 101]({{ site.DOCS_BASE_URL }}/aql/primer.html) to start using AsterixDB right away.
-
+!-->
 </div>
 <div class="col-md-6" markdown="1">
 ### Community and Support
