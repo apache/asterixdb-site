@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://asterixdb.incubator.apache.org/favicon.ico">
+
+    <title>About AsterixDB</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://asterixdb.incubator.apache.org/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+
+    <!-- Custom styles for this template -->
+    <link href="https://asterixdb.incubator.apache.org/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+
+  <div class="container theme-showcase" role="main">
+  <div class="masthead">
+    <p class="lead">
+        <a href="https://asterixdb.incubator.apache.org/index.html"><img src="https://asterixdb.incubator.apache.org/img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
+    </p>
+</div>
+
+<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://asterixdb.incubator.apache.org/index.html">Overview</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="https://asterixdb.incubator.apache.org/download.html">Download</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Stable release</li>
+                  <li><a href="http://asterixdb.ics.uci.edu/documentation/index.html">Documentation for 0.8.6<i class="fa fa-external-link fa-sm"></i></a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Snapshot release</li>
+                  <li><a href="https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/site/asterix-doc/index.html">Documentation for 0.8.7-SNAPSHOT  <i class="fa fa-external-link fa-sm"></i></a></li>
+                </ul>
+              </li>
+              <li><a href="https://asterixdb.incubator.apache.org/about.html">About</a></li>
+              <li><a href="https://asterixdb.incubator.apache.org/community.html">Community</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contributing <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">For New Contributors</li>
+                  <li><a href="https://asterixdb.incubator.apache.org/dev-setup.html">Development Setup</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">For Committers</li>
+                  <li><a href="https://asterixdb.incubator.apache.org/pushing.html">Pushing changes</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+
+  <div class="row">
+<div class="col-md-8 col-centered">
+<h2>About AsterixDB</h2>
+<p>AsterixDB is a highly scalable data management system that can store,index, and manage semi-structured data, e.g., much like MongoDB, butit also supports a full-power query language with the expressiveness of SQL (and more). Unlike analytics engines like Hive or Spark, it stores and manages data, so AsterixDB can exploit its knowledge of data partitioning and the availability of indexes to avoid always scanning data set(s) to process queries. Somewhat surprisingly, there is no open source parallel database system (relational or otherwise) available to developers today – AsterixDB aims to fill this need.</p>
+
+<h3 id="core-features">Core features</h3>
+
+<ul>
+  <li>A NoSQL style data model (ADM) based on extending JSON with object
+database concepts.</li>
+  <li>An expressive and declarative query language (AQL) for querying
+semi-structured data.</li>
+  <li>A runtime query execution engine, Hyracks, for partitioned-parallel
+execution of query plans.</li>
+  <li>Partitioned LSM-based data storage and indexing for efficient
+ingestion of newly arriving data.</li>
+  <li>Support for querying and indexing external data (e.g., in HDFS) as
+well as data stored within AsterixDB.</li>
+  <li>A rich set of primitive data types, including support for spatial,
+temporal, and textual data.</li>
+  <li>Indexing options that include B+ trees, R trees, and inverted
+keyword index support.</li>
+  <li>Basic transactional (concurrency and recovery) capabilities akin to
+those of a NoSQL store.</li>
+</ul>
+
+<h3 id="history">History</h3>
+<p>The current version of AsterixDB was co-developed by a team of faculty, staff, and students at UC Irvine and UC Riverside. The project was initiated as a large NSF-sponsored project in 2009, the goal of which was to combine the best ideas from the parallel database world, the then new Hadoop world, and the semi-structured (e.g., XML/JSON) data world in order to create a next-generation BDMS. A first informal open source release was made four years later, in June of 2013, under the Apache Software License 2.0. AsterixDB was accepted into the Apache Incubator and began Incubation as of Febuary of 2015.</p>
+
+
+</div>
+</div>
+
+
+   <hr />
+
+   <footer>
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3  text-center">
+        <p>&copy; Copyright 2015 The Apache Software foundation. All Rights Reserved. </p>
+        <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
+        </div>
+        <div class="col-md-1 text-right">
+        <img src="https://asterixdb.incubator.apache.org/img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
+        </div>
+        </div>
+   </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://asterixdb.incubator.apache.org/js/bootstrap.min.js"></script>
+  </body>
+</html>
