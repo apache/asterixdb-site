@@ -56,6 +56,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="{{ site.url }}/img/team/zachary_heilbron.jpg"  width="100" height="100"> | Zach Heilbron     | X15 Software  | zheilbron     |
 |<img src="{{ site.url }}/img/team/anonymous.jpg"  width="100" height="100">        | Markus Dreseler   | HPI           | mrks          |
 |<img src="{{ site.url }}/img/team/keren_ouaknine.jpg"  width="100" height="100">   | Keren Ouaknine    | Hebrew University  | kereno        |
+|<img src="{{ site.url }}/img/team/chris_hillery.jpg" width="100" height="100">     | Chris Hillery     | Couchbase     | ceej          |
 
 
 <hr/>
@@ -65,6 +66,5 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 {:.table .table-striped}
 |                                                                                   | Name              | Organization  |
 |-----------------------------------------------------------------------------------|-------------------|---------------|
-|<img src="{{ site.url }}/img/team/chris_hillery.jpg" width="100" height="100">     | Chris Hillery     | Couchbase     |
 |<img src="{{ site.url }}/img/team/eugenia_gabrielova.jpg" width="100" height="100">| Eugenia Gabrielova| UC Irvine     |
 |<img src="{{ site.url }}/img/team/heri_ramampiaro.jpg" width="100" height="100">   | Heri Ramampiaro   | NTNU Trondheim     |
