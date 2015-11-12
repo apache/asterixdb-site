@@ -2,12 +2,12 @@ url: https://asterixdb.incubator.apache.org/
 
 name: "Apache AsterixDB"
 
-STABLE_VERSION: 0.8.6
-UNSTABLE_VERSION: 0.8.7-SNAPSHOT
+STABLE_VERSION: 0.8.7
+UNSTABLE_VERSION: 0.8.8-SNAPSHOT
 STABLE_DOWNLOAD_URL: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
-UNSTABLE_DOWNLOAD_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/lastStableBuild/org.apache.asterix$asterix-installer/artifact/org.apache.asterix/asterix-installer/0.8.7-SNAPSHOT/asterix-installer-0.8.7-SNAPSHOT-binary-assembly.zip"
+UNSTABLE_DOWNLOAD_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/lastStableBuild/org.apache.asterix$asterix-installer/artifact/org.apache.asterix/asterix-installer/0.8.8-SNAPSHOT/asterix-installer-0.8.8-SNAPSHOT-binary-assembly.zip"
 STABLE_YARN_URL: ""
-UNSTABLE_YARN_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/lastStableBuild/org.apache.asterix$asterix-yarn/artifact/org.apache.asterix/asterix-yarn/0.8.7-SNAPSHOT/asterix-yarn-0.8.7-SNAPSHOT-binary-assembly.zip"
+UNSTABLE_YARN_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/lastStableBuild/org.apache.asterix$asterix-yarn/artifact/org.apache.asterix/asterix-yarn/0.8.8-SNAPSHOT/asterix-yarn-0.8.8-SNAPSHOT-binary-assembly.zip"
 DOCS_BASE_URL: "http://asterixdb.ics.uci.edu/documentation"
 UNSTABLE_DOCS_BASE_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/site/asterix-doc"
 ICS_DOWNLOAD_BASE_URL: "https://asterixdb.ics.uci.edu/download"

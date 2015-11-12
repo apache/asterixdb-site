@@ -32,7 +32,8 @@ If you are a developer simply looking for a snapshot of the latest development v
 
 ### Prerequisites
   * A suitable \*nix environment (Linux, OSX)
-  * JDK 1.7+
+  * JDK 1.8+
+  * Maven 3.1.1 or greater
   * A relatively recent version of Eclipse
 
 ### Steps
