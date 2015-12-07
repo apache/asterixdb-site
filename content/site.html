@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Editing this website</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+
+  <div class="container theme-showcase" role="main">
+  <div class="masthead">
+    <p class="lead">
+        <a href="index.html"><img src="img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
+    </p>
+</div>
+
+<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Overview</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="download.html">Download</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Stable release</li>
+                  <li><a href="docs/0.8.7-incubating/index.html">Documentation for 0.8.7-incubating<i class="fa fa-external-link fa-sm"></i></a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Snapshot release</li>
+                  <li><a href="https://ci.apache.org/projects/asterixdb/index.html">Documentation for 0.8.8-SNAPSHOT  <i class="fa fa-external-link fa-sm"></i></a></li>
+                </ul>
+              </li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="community.html">Community</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contributing <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">For New Contributors</li>
+                  <li><a href="dev-setup.html">Development Setup</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">For Committers</li>
+                  <li><a href="pushing.html">Pushing changes</a></li>
+                  <li><a href="site.html">Editing this site</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+
+  <div class="row">
+<div class="col-md-8 col-centered">
+<h2>Editing this website</h2>
+<!-- Major credit to the Apache Flink guys for writing a great doc in a similar vein for their website
+that happens to use more or less the same tooling as AsterixDB's. Much of this doc is based on it. -->
+
+<ul id="markdown-toc">
+  <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a>    <ul>
+      <li><a href="#jekyll" id="markdown-toc-jekyll">Jekyll.</a></li>
+      <li><a href="#checking-out-the-website-sources" id="markdown-toc-checking-out-the-website-sources">Checking out the website sources</a></li>
+    </ul>
+  </li>
+  <li><a href="#making-a-change-to-the-site" id="markdown-toc-making-a-change-to-the-site">Making a change to the site</a>    <ul>
+      <li><a href="#editing-and-viewing-the-change" id="markdown-toc-editing-and-viewing-the-change">Editing and viewing the change.</a></li>
+      <li><a href="#submitting-the-change-to-the-live-site" id="markdown-toc-submitting-the-change-to-the-live-site">Submitting the change to the live site</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<h3 id="jekyll">Jekyll.</h3>
+<p>This website is written using a static website generator called <a href="https://github.com/jekyll/jekyll">Jekyll</a>. To work with editing this website you will need to install it.
+In short, Jekyll uses a combination of templated HTML files and Markdown to compile the final site.
+Generally, the content itself lies within the Markdown files, and the HTML is for layout.
+A full tutorial about how to use Jekyll is out of the scope of this document, but, for our purposes, only Markdown will be edited.</p>
+
+<h3 id="checking-out-the-website-sources">Checking out the website sources</h3>
+
+<p>The website is managed using <code>git</code>. Clone the site as usual</p>
+
+<pre><code>     ➤ git clone https://git-wip-us.apache.org/repos/asf/incubator-asterixdb-site.git
+</code></pre>
+
+<p>You will notice lots of Markdown files and HTML templates in the repository root. The compiled content of the website itself is served from the <code>content/</code> folder in this repository. That is to say, that the actual content of the website itself, as well as its sources are stored in the same repository. Additionally, the main branch on this repository is <code>asf-site</code> and not <code>master</code></p>
+
+<p>Gerrit is used to submit code reviews for the website just as it is with the main codebase. The main difference the site is not strictly subject to code reviews.</p>
+
+<p>To add the Gerrit repository for this site, add it as a normal git remote:</p>
+
+<pre><code>    ➤ git remote add gerrit ssh://YOU@asterix-gerrit.ics.uci.edu:29418/incubator-asterixdb-site
+</code></pre>
+
+<h2 id="making-a-change-to-the-site">Making a change to the site</h2>
+
+<p>The general overview is as follows:
+- Make edits and check the output of ‘jekyll build’
+- Commit the change and propose it for review
+- Either wait for a review, or submit the change</p>
+
+<h3 id="editing-and-viewing-the-change">Editing and viewing the change.</h3>
+
+<p>For whichever section of the site you want to edit, go ahead and do so with the text editor of your choice. Then, to see what your change looks like, in the repository root, execute:</p>
+
+<pre><code>    ➤ jekyll serve --watch
+</code></pre>
+
+<p>This sets up a small integrated web server and compiles the site dynamically as it is edited. Once you are satisfied with how the site looks, go ahead and commit your changes with git.</p>
+
+<p>Right now git gerrit submit isn’t used for the website, so you must construct the proper commit for Gerrit by hand. In your commit message, be sure to include a Change-Id footer that is unique to your change. You may take previous Change-Id: footers as an example.</p>
+
+<p>Once you have made your commit, push it to Gerrit for review:</p>
+
+<pre><code>   ➤ git push gerrit HEAD:refs/for/asf-site
+</code></pre>
+
+<p>If no Change-Id is provided, “ERROR: missing Change-Id in commit message footer” is returned when attempting to push to Gerrit. The error description also contains a) a proposal for a Change-Id that can be pasted to the commit message and b) instructions how to install a commit-msg hook into the local git repository that will automatically add a Change-Id.</p>
+
+<h3 id="submitting-the-change-to-the-live-site">Submitting the change to the live site</h3>
+
+<p>When the submitted review is committed in Gerrit, pull it and overwrite your current asf-site branch:</p>
+
+<pre><code>   ➤ git pull gerrit
+</code></pre>
+
+<p>Then, push the exact commit from the Gerrit web interface to the ASF git repository. Do this with care! ASF git doesn’t allow hard resets on branches, so whatever you push here is final.</p>
+
+<pre><code>   ➤ git push origin (SHA1 of submitted commit)
+</code></pre>
+
+
+</div>
+</div>
+
+
+   <hr />
+
+   <footer>
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3  text-center">
+        <p>&copy; Copyright 2015 The Apache Software foundation. All Rights Reserved. </p>
+        <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
+        </div>
+        <div class="col-md-1 text-right">
+        <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
+        </div>
+        </div>
+   </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

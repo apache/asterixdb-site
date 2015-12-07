@@ -7,16 +7,16 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://asterixdb.incubator.apache.org/favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <title>Contributing to AsterixDB</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://asterixdb.incubator.apache.org/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
 
     <!-- Custom styles for this template -->
-    <link href="https://asterixdb.incubator.apache.org/css/theme.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,7 +29,7 @@
   <div class="container theme-showcase" role="main">
   <div class="masthead">
     <p class="lead">
-        <a href="https://asterixdb.incubator.apache.org/index.html"><img src="https://asterixdb.incubator.apache.org/img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
+        <a href="index.html"><img src="img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
     </p>
 </div>
 
@@ -42,11 +42,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="https://asterixdb.incubator.apache.org/index.html">Overview</a>
+            <a class="navbar-brand" href="index.html">Overview</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="https://asterixdb.incubator.apache.org/download.html">Download</a></li>
+              <li><a href="download.html">Download</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -57,16 +57,17 @@
                   <li><a href="https://ci.apache.org/projects/asterixdb/index.html">Documentation for 0.8.8-SNAPSHOT  <i class="fa fa-external-link fa-sm"></i></a></li>
                 </ul>
               </li>
-              <li><a href="https://asterixdb.incubator.apache.org/about.html">About</a></li>
-              <li><a href="https://asterixdb.incubator.apache.org/community.html">Community</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="community.html">Community</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contributing <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">For New Contributors</li>
-                  <li><a href="https://asterixdb.incubator.apache.org/dev-setup.html">Development Setup</a></li>
+                  <li><a href="dev-setup.html">Development Setup</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">For Committers</li>
-                  <li><a href="https://asterixdb.incubator.apache.org/pushing.html">Pushing changes</a></li>
+                  <li><a href="pushing.html">Pushing changes</a></li>
+                  <li><a href="site.html">Editing this site</a></li>
                 </ul>
               </li>
             </ul>
@@ -139,31 +140,34 @@
 <h3 id="steps">Steps</h3>
 
 <ol>
-  <li>
-    <p>Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</p>
+  <li>Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</li>
+</ol>
 
-    <pre><code>     git clone https://github.com/apache/incubator-asterixdb/
-     git clone https://github.com/apache/incubator-asterixdb-hyracks/
+<pre><code>        git clone https://github.com/apache/incubator-asterixdb/
+        git clone https://github.com/apache/incubator-asterixdb-hyracks/
+
+You will now have `$HOME/workspace/incubator-asterixdb/` and `$HOME/workspace/incubator-asterixdb-hyracks/`.
 </code></pre>
 
-    <p>You will now have <code>$HOME/workspace/incubator-asterixdb/</code> and <code>$HOME/workspace/incubator-asterixdb-hyracks/</code>.</p>
-  </li>
-  <li>
-    <p>Go to the hyracks and install it’s artifacts to the local Maven repository by executing the following commands:</p>
+<ol>
+  <li>Go to the hyracks and install it’s artifacts to the local Maven repository by executing the following commands:</li>
+</ol>
 
-    <pre><code>     cd incubator-asterixdb-hyracks/
-     mvn install -DskipTests
+<pre><code>        cd incubator-asterixdb-hyracks/
+        mvn install -DskipTests
 </code></pre>
-  </li>
-  <li>
-    <p>Go to the asterixdb folder and perform the same action:</p>
 
-    <pre><code>      cd ../incubator-asterixdb/asterix-maven-plugins/
-      mvn install -DskipTests
-      cd ../
-      mvn install -DskipTests
+<ol>
+  <li>Go to the asterixdb folder and perform the same action:</li>
+</ol>
+
+<pre><code>         cd ../incubator-asterixdb/asterix-maven-plugins/
+         mvn install -DskipTests
+         cd ../
+         mvn install -DskipTests
 </code></pre>
-  </li>
+
+<ol>
   <li>In Eclipse, import hyracks as an existing Maven Project.
     <ul>
       <li><code>File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects -&gt; Next</code></li>
@@ -272,62 +276,68 @@ git clone https://github.com/ceejatec/git-gerrit
 <h3 id="once-per-repository-tasks">Once-per-repository tasks</h3>
 
 <ol>
-  <li>
-    <p>To work on (say) Asterix, first clone the Google Code repository (if you already have a local clone, great!).</p>
-
-    <p>git clone https://github.com/apache/incubator-asterixdb</p>
-  </li>
-  <li>
-    <p><code>cd</code> into the clone repo directory, and then run the following command to create the “gerrit” remote.</p>
-
-    <p>git gerrit init</p>
-  </li>
+  <li>To work on (say) Asterix, first clone the Google Code repository (if you already have a local clone, great!).</li>
 </ol>
+
+<pre><code>    git clone https://github.com/apache/incubator-asterixdb
+</code></pre>
+
+<ol>
+  <li><code>cd</code> into the clone repo directory, and then run the following command to create the “gerrit” remote.</li>
+</ol>
+
+<pre><code>    git gerrit init
+</code></pre>
 
 <hr />
 
 <h2 id="making-changes---working-method">Making Changes - working method</h2>
 
 <ol>
-  <li>
-    <p>When you want to start working on a bug, feature, etc, first make a local <code>git</code> branch. Never work directly on <code>master</code>! <code>master</code> should always be a pure mirror of <code>origin/master</code>, ie, Google Code.</p>
+  <li>When you want to start working on a bug, feature, etc, first make a local <code>git</code> branch. Never work directly on <code>master</code>! <code>master</code> should always be a pure mirror of <code>origin/master</code>, ie, Google Code.</li>
+</ol>
 
-    <pre><code>   git checkout -b my_branch
+<pre><code>        git checkout -b my_branch
 </code></pre>
-  </li>
+
+<ol>
   <li>Make your changes, test them, etc. Feel free to <code>git commit</code> as often as you like.</li>
-  <li>
-    <p><strong>Optional</strong>: If you like, you can push your branch up to Google Code, either to share it with others or as a backup. You may do this at whatever point in time you like.</p>
+  <li><strong>Optional</strong>: If you like, you can push your branch up to Google Code, either to share it with others or as a backup. You may do this at whatever point in time you like.</li>
+</ol>
 
-    <pre><code>   git push origin my_branch
+<pre><code>        git push origin my_branch
 </code></pre>
-  </li>
-  <li>
-    <p>Every so often, you should update your local <code>master</code> mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with <code>master</code>. There are a number of ways to do this, but <code>git-gerrit</code> provides a convenience function:</p>
 
-    <pre><code>   git gerrit update
-</code></pre>
-  </li>
-  <li>
-    <p>When you are ready to submit changes for code review, first ensure that you have committed everything locally that is necessary (<code>git status</code> should report “nothing to commit, working directory clean”). This is also a good time to update (see step 4). Then run:</p>
+<ol>
+  <li>Every so often, you should update your local <code>master</code> mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with <code>master</code>. There are a number of ways to do this, but <code>git-gerrit</code> provides a convenience function:</li>
+</ol>
 
-    <pre><code>   git gerrit submit
+<pre><code>        git gerrit update
 </code></pre>
-  </li>
+
+<ol>
+  <li>When you are ready to submit changes for code review, first ensure that you have committed everything locally that is necessary (<code>git status</code> should report “nothing to commit, working directory clean”). This is also a good time to update (see step 4). Then run:</li>
+</ol>
+
+<pre><code>        git gerrit submit
+</code></pre>
+
+<ol>
   <li>This will pop open your editor to invite you to create a good commit message. This will be the single commit message which will be the only one to appear in the project’s master git history. Take the time to make it clear. The editor will contain the log messages of everything you committed on your branch as a reminder, but generally you will want to delete all this and replace it with a comprehensive message. Also: As noted in the initial message, the last line of the buffer will contain a <code>Change-Id</code> field. Do not delete that line! It is used by Gerrit to identify this particular merge proposal.</li>
-  <li>
-    <p>When you save your commit message, git-gerrit will push all of the changes from your working branch up to Gerrit. Assuming no errors, you should see output similar to the following:</p>
+  <li>When you save your commit message, git-gerrit will push all of the changes from your working branch up to Gerrit. Assuming no errors, you should see output similar to the following:</li>
+</ol>
 
-    <pre><code>   remote: Resolving deltas: 100% (1/1)
-   remote: Processing changes: new: 1, refs: 1, done    
-   remote: 
-   remote: New Changes:
-   remote:   http://fulliautomatix.ics.uci.edu:8443/30
-   remote: 
-   To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
-    * [new branch]      HEAD -&gt; refs/for/master
+<pre><code>        remote: Resolving deltas: 100% (1/1)
+        remote: Processing changes: new: 1, refs: 1, done    
+        remote: 
+        remote: New Changes:
+        remote:   http://fulliautomatix.ics.uci.edu:8443/30
+        remote: 
+        To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
+         * [new branch]      HEAD -&gt; refs/for/master
 </code></pre>
-  </li>
+
+<ol>
   <li>That URL under “New Changes” is your code review! Send it to others to request reviews.</li>
   <li>If you get any negative code reviews and need to make changes, you can just repeat steps 2 - 6 of the working method. Your local branch will still have all the history you put there, if you need to revert changes or look back and see what you did, etc.</li>
   <li>When you repeat step 6, you will notice two things: First, git-gerrit keeps the change message for you, including the Change-Id, so you don’t have to re-invent it every time. Second, the output from <code>git gerrit submit</code> will not include the URL of the review this time. I’m not sure why; I wish it did. But if you re-visit the old URL in your browser, you should see an additional “Patch Set” containing your revised changes for people to review.</li>
@@ -392,7 +402,7 @@ this feature, perform the following steps:</p>
         <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
         </div>
         <div class="col-md-1 text-right">
-        <img src="https://asterixdb.incubator.apache.org/img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
+        <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
         </div>
         </div>
    </footer>
@@ -403,6 +413,6 @@ this feature, perform the following steps:</p>
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://asterixdb.incubator.apache.org/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

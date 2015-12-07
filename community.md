@@ -52,7 +52,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="{{ site.url }}/img/team/steven_jacobs.jpg" width="100" height="100">     | Steven Jacobs     | UC Riverside  | sjaco002      |
 |<img src="{{ site.url }}/img/team/ildar_absalyamov.jpg" width="100" height="100">  | Ildar Absalyamov  | UC Riverside  | ildar         |
 |<img src="{{ site.url }}/img/team/anonymous.jpg" width="100" height="100">         | Preston Carman    | UC Riverside  | prestonc      |
-|<img src="{{ site.url }}/img/team/abdullah_alamoudi.jpg" width="100" height="100"> | Abdullah Alamoudi | Saudi Aramco  | amoudi        |
+|<img src="{{ site.url }}/img/team/abdullah_alamoudi.jpg" width="100" height="100"> | Abdullah Alamoudi | Couchbase  | amoudi        |
 |<img src="{{ site.url }}/img/team/zachary_heilbron.jpg"  width="100" height="100"> | Zach Heilbron     | X15 Software  | zheilbron     |
 |<img src="{{ site.url }}/img/team/anonymous.jpg"  width="100" height="100">        | Markus Dreseler   | HPI           | mrks          |
 |<img src="{{ site.url }}/img/team/keren_ouaknine.jpg"  width="100" height="100">   | Keren Ouaknine    | Hebrew University  | kereno        |

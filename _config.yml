@@ -1,5 +1,4 @@
-url: https://asterixdb.incubator.apache.org/
-
+url: ""
 name: "Apache AsterixDB"
 
 STABLE_VERSION: 0.8.7-incubating
@@ -13,6 +12,7 @@ UNSTABLE_DOCS_BASE_URL: "https://ci.apache.org/projects/asterixdb/"
 ICS_DOWNLOAD_BASE_URL: "https://asterixdb.ics.uci.edu/download"
 
 # Build settings
+destination: content
 defaults:
   -
     scope:
