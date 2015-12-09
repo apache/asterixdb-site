@@ -140,34 +140,31 @@
 <h3 id="steps">Steps</h3>
 
 <ol>
-  <li>Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</li>
-</ol>
+  <li>
+    <p>Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</p>
 
-<pre><code>        git clone https://github.com/apache/incubator-asterixdb/
-        git clone https://github.com/apache/incubator-asterixdb-hyracks/
-
-You will now have `$HOME/workspace/incubator-asterixdb/` and `$HOME/workspace/incubator-asterixdb-hyracks/`.
+    <pre><code>     git clone https://github.com/apache/incubator-asterixdb/
+     git clone https://github.com/apache/incubator-asterixdb-hyracks/
 </code></pre>
 
-<ol>
-  <li>Go to the hyracks and install it’s artifacts to the local Maven repository by executing the following commands:</li>
-</ol>
+    <p>You will now have <code>$HOME/workspace/incubator-asterixdb/</code> and <code>$HOME/workspace/incubator-asterixdb-hyracks/</code>.</p>
+  </li>
+  <li>
+    <p>Go to the hyracks and install it’s artifacts to the local Maven repository by executing the following commands:</p>
 
-<pre><code>        cd incubator-asterixdb-hyracks/
-        mvn install -DskipTests
+    <pre><code>     cd incubator-asterixdb-hyracks/
+     mvn install -DskipTests
 </code></pre>
+  </li>
+  <li>
+    <p>Go to the asterixdb folder and perform the same action:</p>
 
-<ol>
-  <li>Go to the asterixdb folder and perform the same action:</li>
-</ol>
-
-<pre><code>         cd ../incubator-asterixdb/asterix-maven-plugins/
-         mvn install -DskipTests
-         cd ../
-         mvn install -DskipTests
+    <pre><code>      cd ../incubator-asterixdb/asterix-maven-plugins/
+      mvn install -DskipTests
+      cd ../
+      mvn install -DskipTests
 </code></pre>
-
-<ol>
+  </li>
   <li>In Eclipse, import hyracks as an existing Maven Project.
     <ul>
       <li><code>File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects -&gt; Next</code></li>
@@ -200,7 +197,8 @@ You will now have `$HOME/workspace/incubator-asterixdb/` and `$HOME/workspace/in
   </li>
   <li>Set up Eclipse code formatting rules
     <ul>
-      <li>Download files <a href="http://wiki.asterixdb.googlecode.com/git/AsterixCodeFormatProfile.xml">AsterixCodeFormatProfile.xml</a> <a href="http://wiki.asterixdb.googlecode.com/git/AsterixCleanupFormatProfile.xml">AsterixCleanupFormatProfile.xml</a></li>
+      <li>Download files <a href="https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml">AsterixCodeFormatProfile.xml</a> 
+ <a href="https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml">AsterixCleanupFormatProfile.xml</a></li>
       <li>Import profiles into Eclipse
         <ul>
           <li>Preferences -&gt; Java -&gt; Code style -&gt; Formatter -&gt; Import -&gt; Select AsterixCodeFormatProfile.xml</li>
@@ -276,68 +274,62 @@ git clone https://github.com/ceejatec/git-gerrit
 <h3 id="once-per-repository-tasks">Once-per-repository tasks</h3>
 
 <ol>
-  <li>To work on (say) Asterix, first clone the Google Code repository (if you already have a local clone, great!).</li>
+  <li>
+    <p>To work on (say) Asterix, first clone the GitHub mirror or the ASF repository (if you already have a local clone, great!), e.g.</p>
+
+    <p>git clone https://github.com/apache/incubator-asterixdb</p>
+  </li>
+  <li>
+    <p><code>cd</code> into the clone repo directory, and then run the following command to create the “gerrit” remote.</p>
+
+    <p>git gerrit init</p>
+  </li>
 </ol>
-
-<pre><code>    git clone https://github.com/apache/incubator-asterixdb
-</code></pre>
-
-<ol>
-  <li><code>cd</code> into the clone repo directory, and then run the following command to create the “gerrit” remote.</li>
-</ol>
-
-<pre><code>    git gerrit init
-</code></pre>
 
 <hr />
 
 <h2 id="making-changes---working-method">Making Changes - working method</h2>
 
 <ol>
-  <li>When you want to start working on a bug, feature, etc, first make a local <code>git</code> branch. Never work directly on <code>master</code>! <code>master</code> should always be a pure mirror of <code>origin/master</code>, ie, Google Code.</li>
-</ol>
+  <li>
+    <p>When you want to start working on a bug, feature, etc, first make a local <code>git</code> branch. Never work directly on 
+    <code>master</code>! <code>master</code> should always be a pure mirror of <code>origin/master</code>, i.e., the GitHub mirror or the ASF repository.</p>
 
-<pre><code>        git checkout -b my_branch
+    <pre><code>   git checkout -b my_branch
 </code></pre>
+  </li>
+  <li>
+    <p>Make your changes, test them, etc. Feel free to <code>git commit</code> as often as you like.</p>
+  </li>
+  <li>
+    <p><strong>Optional</strong>: If you like, you can push your branch up to another git repository (e.g. in your own GitHub account), either to share it with others or as a backup. You may do this at whatever point in time you like.</p>
+  </li>
+  <li>
+    <p>Every so often, you should update your local <code>master</code> mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with <code>master</code>. There are a number of ways to do this, but <code>git-gerrit</code> provides a convenience function:</p>
 
-<ol>
-  <li>Make your changes, test them, etc. Feel free to <code>git commit</code> as often as you like.</li>
-  <li><strong>Optional</strong>: If you like, you can push your branch up to Google Code, either to share it with others or as a backup. You may do this at whatever point in time you like.</li>
-</ol>
-
-<pre><code>        git push origin my_branch
+    <pre><code>   git gerrit update
 </code></pre>
+  </li>
+  <li>
+    <p>When you are ready to submit changes for code review, first ensure that you have committed everything locally that is necessary (<code>git status</code> should report “nothing to commit, working directory clean”). This is also a good time to update (see step 4). Then run:</p>
 
-<ol>
-  <li>Every so often, you should update your local <code>master</code> mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with <code>master</code>. There are a number of ways to do this, but <code>git-gerrit</code> provides a convenience function:</li>
-</ol>
-
-<pre><code>        git gerrit update
+    <pre><code>   git gerrit submit
 </code></pre>
-
-<ol>
-  <li>When you are ready to submit changes for code review, first ensure that you have committed everything locally that is necessary (<code>git status</code> should report “nothing to commit, working directory clean”). This is also a good time to update (see step 4). Then run:</li>
-</ol>
-
-<pre><code>        git gerrit submit
-</code></pre>
-
-<ol>
+  </li>
   <li>This will pop open your editor to invite you to create a good commit message. This will be the single commit message which will be the only one to appear in the project’s master git history. Take the time to make it clear. The editor will contain the log messages of everything you committed on your branch as a reminder, but generally you will want to delete all this and replace it with a comprehensive message. Also: As noted in the initial message, the last line of the buffer will contain a <code>Change-Id</code> field. Do not delete that line! It is used by Gerrit to identify this particular merge proposal.</li>
-  <li>When you save your commit message, git-gerrit will push all of the changes from your working branch up to Gerrit. Assuming no errors, you should see output similar to the following:</li>
-</ol>
+  <li>
+    <p>When you save your commit message, git-gerrit will push all of the changes from your working branch up to Gerrit. Assuming no errors, you should see output similar to the following:</p>
 
-<pre><code>        remote: Resolving deltas: 100% (1/1)
-        remote: Processing changes: new: 1, refs: 1, done    
-        remote: 
-        remote: New Changes:
-        remote:   http://fulliautomatix.ics.uci.edu:8443/30
-        remote: 
-        To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
-         * [new branch]      HEAD -&gt; refs/for/master
+    <pre><code>   remote: Resolving deltas: 100% (1/1)
+   remote: Processing changes: new: 1, refs: 1, done    
+   remote: 
+   remote: New Changes:
+   remote:   http://fulliautomatix.ics.uci.edu:8443/30
+   remote: 
+   To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
+    * [new branch]      HEAD -&gt; refs/for/master
 </code></pre>
-
-<ol>
+  </li>
   <li>That URL under “New Changes” is your code review! Send it to others to request reviews.</li>
   <li>If you get any negative code reviews and need to make changes, you can just repeat steps 2 - 6 of the working method. Your local branch will still have all the history you put there, if you need to revert changes or look back and see what you did, etc.</li>
   <li>When you repeat step 6, you will notice two things: First, git-gerrit keeps the change message for you, including the Change-Id, so you don’t have to re-invent it every time. Second, the output from <code>git gerrit submit</code> will not include the URL of the review this time. I’m not sure why; I wish it did. But if you re-visit the old URL in your browser, you should see an additional “Patch Set” containing your revised changes for people to review.</li>

@@ -79,7 +79,8 @@ If you are a developer simply looking for a snapshot of the latest development v
 * Repeat this step to all projects which show a red X mark except "asterix-fuzzyjoin" and "asterix-transactions".
 * It may be the case that only "asterix-algebra" and "asterix-runtime" will require these steps.
 7. Set up Eclipse code formatting rules
-* Download files [AsterixCodeFormatProfile.xml](http://wiki.asterixdb.googlecode.com/git/AsterixCodeFormatProfile.xml) [AsterixCleanupFormatProfile.xml](http://wiki.asterixdb.googlecode.com/git/AsterixCleanupFormatProfile.xml)
+* Download files [AsterixCodeFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml) 
+    [AsterixCleanupFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml)
 * Import profiles into Eclipse
   * Preferences -> Java -> Code style -> Formatter -> Import -> Select AsterixCodeFormatProfile.xml
   * Preferences -> Java -> Code style -> Clean up -> Import -> Select AsterixCleanupFormatProfile.xml
@@ -144,7 +145,7 @@ git clone https://github.com/ceejatec/git-gerrit
 
 ### Once-per-repository tasks
 
-  1. To work on (say) Asterix, first clone the Google Code repository (if you already have a local clone, great!).
+  1. To work on (say) Asterix, first clone the GitHub mirror or the ASF repository (if you already have a local clone, great!), e.g.
 
         git clone https://github.com/apache/incubator-asterixdb
 
@@ -157,16 +158,14 @@ git clone https://github.com/ceejatec/git-gerrit
 
 ## Making Changes - working method
 
-  1. When you want to start working on a bug, feature, etc, first make a local `git` branch. Never work directly on `master`! `master` should always be a pure mirror of `origin/master`, ie, Google Code.
-
+  1. When you want to start working on a bug, feature, etc, first make a local `git` branch. Never work directly on 
+    `master`! `master` should always be a pure mirror of `origin/master`, i.e., the GitHub mirror or the ASF repository.
 
             git checkout -b my_branch
 
-
   1. Make your changes, test them, etc. Feel free to `git commit` as often as you like.
-  1. **Optional**: If you like, you can push your branch up to Google Code, either to share it with others or as a backup. You may do this at whatever point in time you like.
 
-            git push origin my_branch
+  1. **Optional**: If you like, you can push your branch up to another git repository (e.g. in your own GitHub account), either to share it with others or as a backup. You may do this at whatever point in time you like.
 
   1. Every so often, you should update your local `master` mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with `master`. There are a number of ways to do this, but `git-gerrit` provides a convenience function:
 
