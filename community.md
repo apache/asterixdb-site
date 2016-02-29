@@ -37,7 +37,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="img/team/vinayak_borkar.jpg"  width="100" height="100">   | Vinayak Borkar    | X15 Software       | vborkar    |
 |<img src="img/team/vassilis_tsotras.jpg" width="100" height="100">  | Vassilis Tsotras  | UC Riverside       | tsotras    |
 |<img src="img/team/chen_li.jpg"  width="100" height="100">          | Chen Li           | UC Irvine          | chenli     |
-|<img src="img/team/yingyi_bu.jpg" width="100" height="100">         | Yingyi Bu         | UC Irvine          | yingyib    |
+|<img src="img/team/yingyi_bu.jpg" width="100" height="100">         | Yingyi Bu         | Couchbase          | buyingyi   |
 |<img src="img/team/young_seok_kim.jpg" width="100" height="100">    | Young-Seok Kim    | UC Irvine          | kisskys    |
 |<img src="img/team/inci_cetindil.jpg" width="100" height="100">     | Inci Cetindil     | UC Irvine          | icetindil  |
 |<img src="img/team/raman_grover.jpg" width="100" height="100">      | Raman Grover      | Microsoft Research | raman      |
