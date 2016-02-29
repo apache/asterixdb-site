@@ -22,15 +22,22 @@ A full tutorial about how to use Jekyll is out of the scope of this document, bu
 
 The website is managed using `git`. Clone the site as usual
 
-         ➤ git clone https://git-wip-us.apache.org/repos/asf/incubator-asterixdb-site.git
+         ➤ git clone -b asf-site https://git-wip-us.apache.org/repos/asf/incubator-asterixdb-site.git
 
 You will notice lots of Markdown files and HTML templates in the repository root. The compiled content of the website itself is served from the `content/` folder in this repository. That is to say, that the actual content of the website itself, as well as its sources are stored in the same repository. Additionally, the main branch on this repository is `asf-site` and not `master`
 
 Gerrit is used to submit code reviews for the website just as it is with the main codebase. The main difference the site is not strictly subject to code reviews.
 
-To add the Gerrit repository for this site, add it as a normal git remote:
 
-        ➤ git remote add gerrit ssh://YOU@asterix-gerrit.ics.uci.edu:29418/incubator-asterixdb-site
+Then, you likely will want to check out to make your own topic branch as to not work directly on the "live" branch, like so:
+
+
+        ➤ git checkout -b YOU/site
+
+And perform the git-gerrit init on this branch
+
+
+        ➤ git gerrit init -u ssh://YOU@asterix-gerrit.ics.uci.edu:29418/ -p incubator-asterixdb-site
 
 
 ## Making a change to the site
@@ -55,22 +62,20 @@ Right now git gerrit submit isn't used for the website, so you must construct th
 Once you have made your commit, push it to Gerrit for review:
 
 
-       ➤ git push gerrit HEAD:refs/for/asf-site
+       ➤ git gerrit submit -b asf-site
 
-
-If no Change-Id is provided, "ERROR: missing Change-Id in commit message footer" is returned when attempting to push to Gerrit. The error description also contains a) a proposal for a Change-Id that can be pasted to the commit message and b) instructions how to install a commit-msg hook into the local git repository that will automatically add a Change-Id.
 
 ### Submitting the change to the live site
 
 When the submitted review is committed in Gerrit, pull it and overwrite your current asf-site branch:
 
 
-       ➤ git pull gerrit
+       ➤ git fetch gerrit
 
 
 Then, push the exact commit from the Gerrit web interface to the ASF git repository. Do this with care! ASF git doesn't allow hard resets on branches, so whatever you push here is final.
 
 
-       ➤ git push origin (SHA1 of submitted commit)
+       ➤ git push origin (SHA1 of submitted commit):asf-site
 
 
