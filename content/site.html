@@ -93,6 +93,7 @@ that happens to use more or less the same tooling as AsterixDB's. Much of this d
       <li><a href="#submitting-the-change-to-the-live-site" id="markdown-toc-submitting-the-change-to-the-live-site">Submitting the change to the live site</a></li>
     </ul>
   </li>
+  <li><a href="#troubleshooting" id="markdown-toc-troubleshooting">Troubleshooting</a></li>
 </ul>
 
 <hr />
@@ -109,12 +110,12 @@ A full tutorial about how to use Jekyll is out of the scope of this document, bu
 
 <p>The website is managed using <code>git</code>. Clone the site as usual</p>
 
-<pre><code>     ➤ git clone -b asf-site https://git-wip-us.apache.org/repos/asf/incubator-asterixdb-site.git
+<pre><code>➤ git clone -b asf-site https://git-wip-us.apache.org/repos/asf/incubator-asterixdb-site.git
 </code></pre>
 
 <p>and <code>cd</code> into the clone</p>
 
-<pre><code>     ➤ cd incubator-asterixdb-site
+<pre><code>➤ cd incubator-asterixdb-site
 </code></pre>
 
 <p>You will notice lots of Markdown files and HTML templates in the repository root. The compiled content of the website itself is served from the <code>content/</code> folder in this repository. That is to say, that the actual content of the website itself, as well as its sources are stored in the same repository. Additionally, the main branch on this repository is <code>asf-site</code> and not <code>master</code></p>
@@ -123,12 +124,12 @@ A full tutorial about how to use Jekyll is out of the scope of this document, bu
 
 <p>Then, you likely will want to check out to make your own topic branch as to not work directly on the “live” branch, like so:</p>
 
-<pre><code>    ➤ git checkout -b YOU/site
+<pre><code>➤ git checkout -b YOU/site
 </code></pre>
 
 <p>And perform the git-gerrit init on this branch</p>
 
-<pre><code>    ➤ git gerrit init -u ssh://YOU@asterix-gerrit.ics.uci.edu:29418/ -p incubator-asterixdb-site
+<pre><code>➤ git gerrit init -u ssh://YOU@asterix-gerrit.ics.uci.edu:29418/ -p incubator-asterixdb-site
 </code></pre>
 
 <h2 id="making-a-change-to-the-site">Making a change to the site</h2>
@@ -145,19 +146,19 @@ A full tutorial about how to use Jekyll is out of the scope of this document, bu
 
 <p>For whichever section of the site you want to edit, go ahead and do so with the text editor of your choice. Then, to see what your change looks like, in the repository root, execute:</p>
 
-<pre><code>    ➤ jekyll serve --watch
+<pre><code>➤ jekyll serve --watch
 </code></pre>
 
 <p>This sets up a small integrated web server and compiles the site dynamically as it is edited. Once you are satisfied with how the site looks, go ahead and commit your changes with git.</p>
 
 <p>Once you have made your commit, push it to Gerrit for review:</p>
 
-<pre><code>   ➤ git gerrit submit -b asf-site
+<pre><code>➤ git gerrit submit -b asf-site
 </code></pre>
 
 <p>For longer edits you might need to update your local <code>asf-site</code> mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with <code>master</code>. Similar to the way this is done for code changes you can use</p>
 
-<pre><code>   ➤ git gerrit update -b asf-site
+<pre><code>➤ git gerrit update -b asf-site
 </code></pre>
 
 <p>to do this.</p>
@@ -166,12 +167,28 @@ A full tutorial about how to use Jekyll is out of the scope of this document, bu
 
 <p>When the submitted review is committed in Gerrit, pull it and overwrite your current asf-site branch:</p>
 
-<pre><code>   ➤ git fetch gerrit
+<pre><code>➤ git fetch gerrit
 </code></pre>
 
 <p>Then, push the exact commit from the Gerrit web interface to the ASF git repository. Do this with care! ASF git doesn’t allow hard resets on branches, so whatever you push here is final.</p>
 
-<pre><code>   ➤ git push origin (SHA1 of submitted commit):asf-site
+<pre><code>➤ git push origin (SHA1 of submitted commit):asf-site
+</code></pre>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If jekyll produces an error message like this one:</p>
+
+<pre><code>➤ jekyll serve --watch
+Configuration file: /.../incubator-asterixdb-site/_config.yml
+You are missing a library required for syntax highlighting. Please run:
+$ [sudo] gem install pygments
+jekyll 3.1.2 | Error:  uninitialized constant Kramdown::Converter::PygmentsHtml::FatalException
+</code></pre>
+
+<p>this might fix it:</p>
+
+<pre><code>➤ sudo gem install pygments.rb
 </code></pre>
 
 
