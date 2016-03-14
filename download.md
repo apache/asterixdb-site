@@ -10,16 +10,16 @@ title: Download
 <div class="row">
 <div class="col-md-6" markdown="1">
 
-AsterixDB Source releases as a tarball/zip are available below.
-Feel free to browse and download the source tree of AsterixDB (and Hyracks) from our GitHub mirror.
+Apache AsterixDB&trade; (incubating) source releases as a tarball/zip are available on the ASF mirror of your choice.
 
+Feel free to browse and download the source tree of AsterixDB (and Hyracks) from our GitHub mirror.
 
 </div>
 <div class="col-md-6" markdown="1">
 
+<p><a class="btn btn-md btn-info" href="https://www.apache.org/dyn/closer.cgi/incubator/asterixdb" role="button">Source Tarballs <i class="fa fa-download fa-lg"></i></a></p>
 <p><a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb/" role="button">AsterixDB on GitHub <i class="fa fa-github fa-lg"></i></a></p>
 <p><a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb-hyracks/" role="button">Hyracks on GitHub <i class="fa fa-github fa-lg"></i></a></p>
-<p><a class="btn btn-md btn-info" href="https://www.apache.org/dyn/closer.cgi/incubator/asterixdb" role="button">Source Tarballs <i class="fa fa-download fa-lg"></i></a></p>
 
 </div>
 </div>
@@ -36,7 +36,7 @@ Feel free to browse and download the source tree of AsterixDB (and Hyracks) from
 <div class="row">
 
 <div class="col-md-6" markdown="1">
-This packaging is most suitable for installation on a cluster without Hadoop or YARN. Choose from either a stable release or the latest build from our master branch.
+This packaging is most suitable for installation on a cluster without Hadoop or YARN.
 </div>
 
 <div class="col-md-6" markdown="1">

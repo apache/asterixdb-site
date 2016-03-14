@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>About AsterixDB</title>
+    <title>About Apache AsterixDB</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +27,15 @@
   </head>
 
   <div class="container theme-showcase" role="main">
-  <div class="masthead">
-    <p class="lead">
-        <a href="index.html"><img src="img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
-    </p>
-</div>
+          <div class="masthead">
+        <p class="lead">
+           <a href="index.html">
+             <img src="img/asterixdb_tm.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/>
+           </a>
+        </p>
+      </div>
 
-<nav class="navbar navbar-default">
+      <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -71,15 +73,36 @@
                 </ul>
               </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                   style="padding-right: 30px">
+                  <img src="img/feather.png" style="height:20px"/>Apache Software Foundation<span class="caret"/>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li><a href="http://www.apache.org/"><b>ASF Homepage</b></a></li>
+                  <li><a href="http://www.apache.org/licenses/">License</a></li>
+                  <li><a href="http://www.apache.org/foundation/sponsorship.html">Donate</a></li>
+                  <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                  <li><a href="http://www.apache.org/security/">Security</a></li>
+                </ul>
+              </li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </nav>
 
 
-  <div class="row">
+    <div class="row">
 <div class="col-md-8 col-centered">
-<h2>About AsterixDB</h2>
-<p>AsterixDB is a highly scalable data management system that can store,index, and manage semi-structured data, e.g., much like MongoDB, butit also supports a full-power query language with the expressiveness of SQL (and more). Unlike analytics engines like Hive or Spark, it stores and manages data, so AsterixDB can exploit its knowledge of data partitioning and the availability of indexes to avoid always scanning data set(s) to process queries. Somewhat surprisingly, there is no open source parallel database system (relational or otherwise) available to developers today – AsterixDB aims to fill this need.</p>
+<h2>About Apache AsterixDB</h2>
+<p>Apache AsterixDB™ (incubating) is a highly scalable data management system that can store,index, and manage
+semi-structured data, e.g., much like MongoDB, but it also supports a full-power query language with the expressiveness
+of SQL (and more).
+Unlike analytics engines like Hive or Spark, it stores and manages data, so AsterixDB can exploit its knowledge
+of data partitioning and the availability of indexes to avoid always scanning data set(s) to process queries. Somewhat
+surprisingly, there is no open source parallel database system (relational or otherwise) available to developers today
+– AsterixDB aims to fill this need.</p>
 
 <h3 id="core-features">Core features</h3>
 
@@ -103,28 +126,45 @@ those of a NoSQL store.</li>
 </ul>
 
 <h3 id="history">History</h3>
-<p>The current version of AsterixDB was co-developed by a team of faculty, staff, and students at UC Irvine and UC Riverside. The project was initiated as a large NSF-sponsored project in 2009, the goal of which was to combine the best ideas from the parallel database world, the then new Hadoop world, and the semi-structured (e.g., XML/JSON) data world in order to create a next-generation BDMS. A first informal open source release was made four years later, in June of 2013, under the Apache Software License 2.0. AsterixDB was accepted into the Apache Incubator and began Incubation as of Febuary of 2015.</p>
+<p>Prior to being developed at the Apache Software Foundation AsterixDB was co-developed by a team of faculty, staff, and students at UC Irvine and UC Riverside.
+The project was initiated as a large NSF-sponsored project in 2009, the goal of which was to combine the best ideas from the parallel database world, the then new Hadoop world, and the semi-structured (e.g., XML/JSON) data world in order to create a next-generation BDMS.
+A first informal open source release was made four years later, in June of 2013, under the Apache Software License 2.0.
+AsterixDB was accepted into the Apache Incubator and began Incubation as of Febuary of 2015.</p>
 
 
 </div>
 </div>
 
 
-   <hr />
+    <hr/>
 
-   <footer>
-        <div class="row">
-        <div class="col-md-6 col-md-offset-3  text-center">
-        <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
-        <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
+    <footer>
+      <div class="row">
+        <div class="col-md-9 col-centered">
+          <div class="col-md-9 text-left">
+            <p>Apache AsterixDB is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored
+              by the Apache Incubator.
+              Incubation is required of all newly accepted projects until a further review indicates that the
+              infrastructure, communications, and decision making process have stabilized in a manner consistent with
+              other successful ASF projects.
+              While incubation status is not necessarily a reflection of the completeness or stability of the code, it
+              does indicate that the project has yet to be fully endorsed by the ASF.</p>
+          </div>
+          <div class="col-md-3 text-right">
+            <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-centered text-center">
+          <p/>
+          <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
+          <p>Apache AsterixDB, the Apache AsterixDB logo, Apache, and the Apache feather logo are trademarks of the
+            Apache Software Foundation</p>
         </div>
-        <div class="col-md-1 text-right">
-        <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
-        </div>
-        </div>
-   </footer>
-    </div> <!-- /container -->
-
+      </div>
+    </footer>
+  </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

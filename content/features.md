@@ -1,7 +1,7 @@
 
 # AsterixDB Features#
 
-AsterixDB is a BDMS (Big Data Management System) with a rich feature set that
+Apache AsterixDB&trade; (incubating) is a BDMS (Big Data Management System) with a rich feature set that
 sets it apart from other Big Data platforms.
 Its feature set makes it well-suited to modern needs such as web data
 warehousing and social data storage and analysis. AsterixDB has:
@@ -24,13 +24,3 @@ warehousing and social data storage and analysis. AsterixDB has:
    parametric queries
  * Basic transactional (concurrency and recovery) capabilities akin to those of
    a NoSQL store
-
-### Disclaimer ###
-Apache AsterixDB is an effort undergoing incubation at The Apache Software
-Foundation (ASF), sponsored by the Apache incubator.
-Incubation is required of all newly accepted projects until a further review
-indicates that the infrastructure, communications, and decision making process
-have stabilized in a manner consistent with other successful ASF projects.
-While incubation status is not necessarily a reflection of the completeness or
-stability of the code, it does indicate that the project has yet to be fully
-endorsed by the ASF.

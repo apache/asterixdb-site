@@ -27,13 +27,15 @@
   </head>
 
   <div class="container theme-showcase" role="main">
-  <div class="masthead">
-    <p class="lead">
-        <a href="index.html"><img src="img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
-    </p>
-</div>
+          <div class="masthead">
+        <p class="lead">
+           <a href="index.html">
+             <img src="img/asterixdb_tm.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/>
+           </a>
+        </p>
+      </div>
 
-<nav class="navbar navbar-default">
+      <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -71,24 +73,41 @@
                 </ul>
               </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                   style="padding-right: 30px">
+                  <img src="img/feather.png" style="height:20px"/>Apache Software Foundation<span class="caret"/>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li><a href="http://www.apache.org/"><b>ASF Homepage</b></a></li>
+                  <li><a href="http://www.apache.org/licenses/">License</a></li>
+                  <li><a href="http://www.apache.org/foundation/sponsorship.html">Donate</a></li>
+                  <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                  <li><a href="http://www.apache.org/security/">Security</a></li>
+                </ul>
+              </li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </nav>
 
 
-  <div class="row">
+    <div class="row">
  <div class="col-md-9 col-centered">
-   <div class="well text-center"><p class="lead text-center"><strong>Apache AsterixDB</strong> is an open source Big Data Management System (BDMS).</p>
+   <div class="well text-center"><p class="lead text-center">
+     <strong>Apache AsterixDB</strong>™ (incubating) is an open source Big Data Management System (BDMS).</p>
    </div>
  </div>
 </div>
 
-<div class="row"><div class="col-md-3 col-centered text-center">
+<div class="row">
+  <div class="col-md-3 col-centered text-center">
     <h2 id="feature-overview">Feature Overview</h2>
 
     <hr />
-
-  </div></div>
+  </div>
+</div>
 
 <div class="text-center">
 <div class="col-md-5 col-md-offset-1">
@@ -230,7 +249,7 @@ You can download the latest stable release here.
 See the installation [guide](docs/install.html), and check out [AsterixDB 101](docs/aql/primer.html) to start using AsterixDB right away.
 !-->
   </div>
-<div class="col-md-6">
+<div class="col-md-9 col-centered">
     <h3 id="community-and-support">Community and Support</h3>
     <p>If you have any questions, please feel free to ask on our <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#117;&#115;&#101;&#114;&#115;&#064;&#097;&#115;&#116;&#101;&#114;&#105;&#120;&#100;&#098;&#046;&#105;&#110;&#099;&#117;&#098;&#097;&#116;&#111;&#114;&#046;&#097;&#112;&#097;&#099;&#104;&#101;&#046;&#111;&#114;&#103;">users</a> mailing list, which you can subscribe to by sending an empty email to <a href="users-subscribe@asterixdb.incubator.apache.org">users-subscribe</a>. Check out the <a href="community.html">Community</a> page for more details.</p>
 
@@ -239,21 +258,35 @@ See the installation [guide](docs/install.html), and check out [AsterixDB 101](d
 </div>
 
 
-   <hr />
+    <hr/>
 
-   <footer>
-        <div class="row">
-        <div class="col-md-6 col-md-offset-3  text-center">
-        <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
-        <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
+    <footer>
+      <div class="row">
+        <div class="col-md-9 col-centered">
+          <div class="col-md-9 text-left">
+            <p>Apache AsterixDB is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored
+              by the Apache Incubator.
+              Incubation is required of all newly accepted projects until a further review indicates that the
+              infrastructure, communications, and decision making process have stabilized in a manner consistent with
+              other successful ASF projects.
+              While incubation status is not necessarily a reflection of the completeness or stability of the code, it
+              does indicate that the project has yet to be fully endorsed by the ASF.</p>
+          </div>
+          <div class="col-md-3 text-right">
+            <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-centered text-center">
+          <p/>
+          <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
+          <p>Apache AsterixDB, the Apache AsterixDB logo, Apache, and the Apache feather logo are trademarks of the
+            Apache Software Foundation</p>
         </div>
-        <div class="col-md-1 text-right">
-        <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
-        </div>
-        </div>
-   </footer>
-    </div> <!-- /container -->
-
+      </div>
+    </footer>
+  </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

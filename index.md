@@ -5,18 +5,20 @@ layout: default
 
 <div class="row">
  <div class="col-md-9 col-centered">
-   <div class="well text-center"><p class="lead text-center" markdown="1">__Apache AsterixDB__ is an open source Big Data Management System (BDMS).</p>
+   <div class="well text-center"><p class="lead text-center" markdown="1">
+     __Apache AsterixDB__&trade; (incubating) is an open source Big Data Management System (BDMS).</p>
    </div>
  </div>
 </div>
 
 
-<div class="row"><div class="col-md-3 col-centered text-center" markdown="1">
+<div class="row">
+  <div class="col-md-3 col-centered text-center" markdown="1">
 ## Feature Overview
 
 ----
-
-</div></div>
+  </div>
+</div>
 
 <div class="row" class="text-center">
 <div class="col-md-5 col-md-offset-1" markdown="1">
@@ -163,7 +165,7 @@ You can download the latest stable release here.
 See the installation [guide]({{ site.DOCS_BASE_URL }}/install.html), and check out [AsterixDB 101]({{ site.DOCS_BASE_URL }}/aql/primer.html) to start using AsterixDB right away.
 !-->
 </div>
-<div class="col-md-6" markdown="1">
+<div class="col-md-9 col-centered" markdown="1">
 ### Community and Support
 If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.incubator.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.incubator.apache.org). Check out the [Community]({{ site.url }}community.html) page for more details.
 

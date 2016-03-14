@@ -11,7 +11,8 @@ title: Contributing to AsterixDB
 ---
 
 ## Introduction
-We warmly welcome any contributions to the AsterixDB or related (Hyracks, Pregelix) projects. A great way to start contributing is to pick a bug labelled starter in JIRA and submit a patch for it, to get acquainted with our codebase and development process.
+We warmly welcome any contributions to the Apache AsterixDB&trade; (incubating) or related (Hyracks, Pregelix) projects.
+A great way to start contributing is to pick a bug labelled starter in JIRA and submit a patch for it, to get acquainted with our codebase and development process.
 
 ---
 

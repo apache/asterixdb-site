@@ -27,13 +27,15 @@
   </head>
 
   <div class="container theme-showcase" role="main">
-  <div class="masthead">
-    <p class="lead">
-        <a href="index.html"><img src="img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
-    </p>
-</div>
+          <div class="masthead">
+        <p class="lead">
+           <a href="index.html">
+             <img src="img/asterixdb_tm.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/>
+           </a>
+        </p>
+      </div>
 
-<nav class="navbar navbar-default">
+      <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -71,12 +73,27 @@
                 </ul>
               </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                   style="padding-right: 30px">
+                  <img src="img/feather.png" style="height:20px"/>Apache Software Foundation<span class="caret"/>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li><a href="http://www.apache.org/"><b>ASF Homepage</b></a></li>
+                  <li><a href="http://www.apache.org/licenses/">License</a></li>
+                  <li><a href="http://www.apache.org/foundation/sponsorship.html">Donate</a></li>
+                  <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                  <li><a href="http://www.apache.org/security/">Security</a></li>
+                </ul>
+              </li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </nav>
 
 
-  <div class="row">
+    <div class="row">
 <div class="col-md-8 col-centered">
 <h2>Contributing to AsterixDB</h2>
 <hr />
@@ -112,7 +129,8 @@
 <hr />
 
 <h2 id="introduction">Introduction</h2>
-<p>We warmly welcome any contributions to the AsterixDB or related (Hyracks, Pregelix) projects. A great way to start contributing is to pick a bug labelled starter in JIRA and submit a patch for it, to get acquainted with our codebase and development process.</p>
+<p>We warmly welcome any contributions to the Apache AsterixDB™ (incubating) or related (Hyracks, Pregelix) projects.
+A great way to start contributing is to pick a bug labelled starter in JIRA and submit a patch for it, to get acquainted with our codebase and development process.</p>
 
 <hr />
 
@@ -385,21 +403,35 @@ this feature, perform the following steps:</p>
 </div>
 
 
-   <hr />
+    <hr/>
 
-   <footer>
-        <div class="row">
-        <div class="col-md-6 col-md-offset-3  text-center">
-        <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
-        <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
+    <footer>
+      <div class="row">
+        <div class="col-md-9 col-centered">
+          <div class="col-md-9 text-left">
+            <p>Apache AsterixDB is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored
+              by the Apache Incubator.
+              Incubation is required of all newly accepted projects until a further review indicates that the
+              infrastructure, communications, and decision making process have stabilized in a manner consistent with
+              other successful ASF projects.
+              While incubation status is not necessarily a reflection of the completeness or stability of the code, it
+              does indicate that the project has yet to be fully endorsed by the ASF.</p>
+          </div>
+          <div class="col-md-3 text-right">
+            <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-centered text-center">
+          <p/>
+          <p>&copy; Copyright 2016 The Apache Software foundation. All Rights Reserved. </p>
+          <p>Apache AsterixDB, the Apache AsterixDB logo, Apache, and the Apache feather logo are trademarks of the
+            Apache Software Foundation</p>
         </div>
-        <div class="col-md-1 text-right">
-        <img src="img/egg-logo.png" style="height:auto; width:200px; vertical-align:bottom;"/>
-        </div>
-        </div>
-   </footer>
-    </div> <!-- /container -->
-
+      </div>
+    </footer>
+  </div> <!-- /container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
