@@ -44,6 +44,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="img/team/jianfeng_jia.jpg" width="100" height="100">      | Jianfeng Jia      | UC Irvine          | jianfeng   |
 |<img src="img/team/keren_ouaknine.jpg" width="100" height="100">    | Keren Ouaknine    | Hebrew University  | kereno     |
 |<img src="img/team/anonymous.jpg" width="100" height="100">         | Markus Dreseler   | HPI                | mrks       |
+|<img src="img/team/michael_blow.jpg" width="100" height="100">      | Michael Blow      | Couchbase          | mblow      |
 |<img src="img/team/michael_carey.jpg" width="100" height="100">     | Michael Carey     | UC Irvine          | dtabass    |
 |<img src="img/team/murtadha_hubail.jpg" width="100" height="100">   | Murtadha Hubail   | UC Irvine          | mhubail    |
 |<img src="img/team/pouria_pirzadeh.jpg" width="100" height="100">   | Pouria Pirzadeh   | UC Irvine          | pouria     |
@@ -67,5 +68,4 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |                                                                    | Name              | Organization       |
 |--------------------------------------------------------------------|-------------------|--------------------|
 |<img src="img/team/eugenia_gabrielova.jpg" width="100" height="100">| Eugenia Gabrielova| UC Irvine          |
-|<img src="img/team/michael_blow.jpg" width="100" height="100">      | Michael Blow      | Couchbase          |
 |<img src="img/team/anonymous.jpg" width="100" height="100">         | Wail Alkowaileet  | KACST Saudi Arabia |
