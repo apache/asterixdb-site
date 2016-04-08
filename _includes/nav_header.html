@@ -31,7 +31,15 @@
                 </ul>
               </li>
               <li><a href="{{ site.url }}about.html">About</a></li>
-              <li><a href="{{ site.url }}community.html">Community</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Community<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{ site.url }}community.html">Mailing Lists</a></li>
+                  <li><a href="{{ site.url }}community.html#irc">IRC</a></li>
+                  <li><a href="{{ site.url }}community.html#asterixdb-team">Team</a></li>
+                  <li><a href="https://issues.apache.org/jira/browse/ASTERIXDB">Issue Tracker</a></li>
+                </ul>
+              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contributing <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
