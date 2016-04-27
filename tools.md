@@ -3,7 +3,7 @@ title: Tools
 layout: wide
 ---
 
-Apache AsterixDB&trade; (incubating) is built and maintained using a variety of open source and commerical tools.
+Apache AsterixDB&trade; is built and maintained using a variety of open source and commerical tools.
 This page lists some of them, in no particular order.
 
 

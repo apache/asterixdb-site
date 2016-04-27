@@ -3,8 +3,9 @@ title: Community
 layout: wide
 ---
 
-Apache AsterixDB&trade; (incubating) strives to support an open and transparent development process.
-Here are the various places where you can find discussions relating to the day to day development of AsterixDB and related projects, as well as answers to any AsterixDB-related questions.
+Apache AsterixDB&trade; strives to support an open and transparent development process. Here are the various places
+where you can find discussions relating to the day to day development of AsterixDB and related projects, as well as
+answers to any AsterixDB-related questions.
 
 * TOC
 {:toc }

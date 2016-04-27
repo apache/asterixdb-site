@@ -6,7 +6,7 @@ layout: default
 <div class="row">
  <div class="col-md-9 col-centered">
    <div class="well text-center"><p class="lead text-center" markdown="1">
-     __Apache AsterixDB__&trade; (incubating) is an open source Big Data Management System (BDMS).</p>
+     __Apache AsterixDB__&trade; is an open source Big Data Management System (BDMS).</p>
    </div>
  </div>
 </div>

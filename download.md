@@ -10,7 +10,7 @@ title: Download
 <div class="row">
 <div class="col-md-6" markdown="1">
 
-Apache AsterixDB&trade; (incubating) source releases as a tarball/zip are available on the ASF mirror of your choice.
+Apache AsterixDB&trade; source releases as a tarball/zip are available on the ASF mirror of your choice.
 
 Feel free to browse and download the source tree of AsterixDB (and Hyracks) from our GitHub mirror.
 

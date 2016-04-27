@@ -1,10 +1,10 @@
 
 # AsterixDB Features#
 
-Apache AsterixDB&trade; (incubating) is a BDMS (Big Data Management System) with a rich feature set that
-sets it apart from other Big Data platforms.
-Its feature set makes it well-suited to modern needs such as web data
-warehousing and social data storage and analysis. AsterixDB has:
+Apache AsterixDB&trade; is a BDMS (Big Data Management System) with a rich feature set that sets it apart from other
+Big Data platforms.
+Its feature set makes it well-suited to modern needs such as web data warehousing and social data storage and analysis.
+AsterixDB has:
 
  * A semistructured NoSQL style data model (ADM) resulting from extending JSON
    with object database ideas
