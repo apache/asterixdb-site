@@ -4,171 +4,93 @@ layout: default
 ---
 
 <div class="row">
- <div class="col-md-9 col-centered">
-   <div class="well text-center"><p class="lead text-center" markdown="1">
-     __Apache AsterixDB__&trade; is an open source Big Data Management System (BDMS).</p>
-   </div>
+<div class="col-md-9"><p class="lead"><strong>Apache AsterixDB&trade;</strong> is a scalable, open source Big Data Management System (BDMS).</p></div>
+</div> 
+
+<div class="row">
+  <div class="col-lg-4" markdown="1">
+### Key Features ###
+* [<strong>Flexible</strong>](docs/0.8.8-incubating/aql/datamodel.html) data model
+* [<strong>Distributed</strong>](http://asterix.ics.uci.edu/pub/vldb14-storage.pdf) storage and transaction
+* [<strong>Fast</strong>](docs/0.8.8-incubating/feeds/tutorial.html) data ingestion
+* [<strong>Scalable</strong>](http://asterix.ics.uci.edu/pub/ICDE11_conf_full_690.pdf), data-parallel query execution runtime
+* [<strong>Declarative</strong>](docs/0.8.8-incubating/aql/manual.html) query language
+
+<strong>AsterixDB</strong> supports various storage and indexing options:
+
+* [<strong>Managed datasets</strong>](docs/0.8.8-incubating/aql/primer.html), internal LSM-based storage
+* [<strong>External datasets</strong>](docs/0.8.8-incubating/aql/externaldata.html), e.g., data on HDFS
+* [<strong>Secondary indexes</strong>](docs/0.8.8-incubating/aql/primer.html), for both storage options.
+
  </div>
+
+  <div class="col-md-4 text-center">
+    <h3 id="flexible-data">Flexible Data</h3>
+    <img src="https://docs.google.com/drawings/d/1-0YZZz3XvOLEfMNhgt-Bf5jgscwHi3N4vVVg9d7hDnI/pub?w=394&amp;h=369" width="80%">
+  </div>
+
+  <div class="col-md-4 text-center"> 
+    <h3 id="architecture">Architecture</h3> 
+    <img src="https://docs.google.com/drawings/d/11X2RlI95SoWR5wLtnV7kG727uae6pbUPOnYjG9jm5c8/pub?w=720&amp;h=364" width="100%"> 
+  </div>
+
 </div>
 
 
 <div class="row">
-  <div class="col-md-3 col-centered text-center" markdown="1">
-## Feature Overview
+  <p></p>
+</div>
 
-----
+<div class="row">
+  <div class="col-sm-6 text-center">
+    <h3 id="example-use-case">Example Use Case: Real-time Tweet Analysis</h3>
+    <a href="http://cloudberry.ics.uci.edu"><img src="img/tweet.png" width="100%"></a>
+  </div>
+
+  <div class="col-md-6 text-center">
+  <h3 id="performance-highlights">Performance Highlights</h3>
+<a href="https://docs.google.com/spreadsheets/d/1PTtUUxijKWBS5CQU7lPEQEa7e8fp7n8Js0gq_tvittA/pubchart?oid=1652093339&amp;format=image"><img src="https://docs.google.com/spreadsheets/d/1PTtUUxijKWBS5CQU7lPEQEa7e8fp7n8Js0gq_tvittA/pubchart?oid=1652093339&amp;format=image" width="100%" /></a>
   </div>
 </div>
 
-<div class="row" class="text-center">
-<div class="col-md-5 col-md-offset-1" markdown="1">
-<div class="panel panel-primary" markdown="1">
-<h4 class="panel-heading">Data feeds</h4>
-
-<div class="panel-body">
-
-<div class="col-md-2" markdown="1">
-<i class="fa fa-sitemap fa-4x pull-left "></i>
+<div class="row">
+  <p></p>
 </div>
 
-<div class="col-md-10" markdown="1">
-Process incoming live data, and store it- seamlessly.
-</div>
-
-</div>
-</div>
-</div>
-
-<div class="col-md-5" markdown="1">
-<div class="panel panel-primary" markdown="1">
-<h4 class="panel-heading">Scalable runtime</h4>
-
-<div class="panel-body">
-
-<div class="col-md-2" markdown="1">
-<i class="fa fa-signal fa-4x pull-left"></i>
-</div>
-
-<div class="col-md-10" markdown="1">
-AsterixDB is built on Hyracks, a parallel dataflow engine scale tested on hundreds of nodes.
-</div>
-
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="row" class="text-center">
-
-<div class="col-md-5 col-md-offset-1" markdown="1">
-<div class="panel panel-primary" markdown="1">
-<h4 class="panel-heading">External data</h4>
-
-<div class="panel-body">
-<div class="col-md-2" markdown="1">
-<i class="fa fa-database fa-4x pull-left"></i>
-</div>
-
-<div class="col-md-10" markdown="1">
-Query and index your data in HDFS alongside data stored in AsterixDB.
-</div>
-
-</div>
-</div>
-</div>
-
-<div class="col-md-5" markdown="1">
-<div class="panel panel-primary" markdown="1">
-<h4 class="panel-heading">Semi-structured data model</h4>
-
-<div class="panel-body">
-
-<div class="col-md-2" markdown="1">
-<i class="fa fa-table fa-4x pull-left"></i>
-</div>
-
-<div class="col-md-10" markdown="1">
-Give your data as much or as little schema as you want, in one system.
-</div>
-
-</div>
-</div>
-</div>
-
-</div>
-
-
-<div class="row" class="text-center">
-
-<div class="col-md-5 col-md-offset-1" markdown="1">
-<div class="panel panel-primary" markdown="1">
-<h4 class="panel-heading">Log-structured storage</h4>
-
-<div class="panel-body">
-<div class="col-md-2" markdown="1">
-<i class="fa fa-flask fa-4x pull-left"></i>
-</div>
-
-<div class="col-md-10" markdown="1">
-AsterixDB uses state of the art indexing techniques to support high speed data ingestion.
-</div>
-
-</div>
-</div>
-
-</div>
-
-<div class="col-md-5" markdown="1">
-<div class="panel panel-primary" markdown="1">
-<h4 class="panel-heading">Rich datatypes</h4>
-
-<div class="panel-body">
-
-<div class="col-md-2" markdown="1">
-<i class="fa fa-gear fa-4x pull-left"></i>
-</div>
-
-<div class="col-md-10" markdown="1">
-AsterixDB extends JSON datatypes with support for spatial and temporal data.
-</div>
-
-</div>
-</div>
-</div>
-
+<div class="row">
+  <div class="col-md-6 text-center">
+   	<h3 id="tech-talk">Tech Talk</h3>
+     	<iframe width="100%" src="https://www.youtube.com/embed/jIZRMi9rt2E" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="col-md-6 text-center">
+    <h3 id="query-demo">Query Demo</h3>
+    <iframe width="100%" src="https://www.youtube.com/embed/0FVipiyL-cQ" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
 
 
 <div class="row">
+  <p></p>
 </div>
-
-
-<div class="row"><div class="col-md-5 col-centered text-center"  markdown="1">
-
-
-## Getting Started
-
----
-
-</div></div>
-
 
 <div class="row">
-<div class="col-md-6" markdown="1">
-<!--
-### Download
-You can download the latest stable release here.
-
-<p><a class="btn btn-md btn-success" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i></a></p>
-
-See the installation [guide]({{ site.DOCS_BASE_URL }}/install.html), and check out [AsterixDB 101]({{ site.DOCS_BASE_URL }}/aql/primer.html) to start using AsterixDB right away.
-!-->
-</div>
-<div class="col-md-9 col-centered" markdown="1">
+  <div class="col-md-4">
+    <a class="twitter-timeline"  width="100%" href="https://twitter.com/ASTERIXUCI" data-widget-id="733118248380571648">Tweets by @ASTERIXUCI</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+  <div class="col-md-4" markdown="1">
 ### Community and Support
 If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.incubator.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.incubator.apache.org). Check out the [Community]({{ site.url }}community.html) page for more details.
 
 If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing]({{ site.url }}dev-setup.html) page to learn more.
+  </div>
+  <div class="col-md-4" markdown="1">
+### Download
+   <p><a class="btn btn-md btn-success" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i></a>
+      <a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb/" role="button">GitHub <i class="fa fa-github fa-lg"></i></a></p>
+   [Installation Guide]({{ site.DOCS_BASE_URL }}/install.html)
+
+   [AsterixDB 101]({{ site.DOCS_BASE_URL }}/aql/primer.html)
+  </div>
 </div>
-</div>
+
