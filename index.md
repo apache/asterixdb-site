@@ -24,7 +24,7 @@ layout: default
 
  </div>
 
-  <div class="col-md-4 text-center">
+  <div class="col-md-4">
     <h3 id="flexible-data">Flexible Data</h3>
     <img src="https://docs.google.com/drawings/d/1-0YZZz3XvOLEfMNhgt-Bf5jgscwHi3N4vVVg9d7hDnI/pub?w=394&amp;h=369" width="80%">
   </div>
@@ -43,7 +43,7 @@ layout: default
 
 <div class="row">
   <div class="col-sm-6 text-center">
-    <h3 id="example-use-case">Example Use Case: Real-time Tweet Analysis</h3>
+    <h3 id="example-use-case">Example: Interactive Analytics and Visualization on Tweets</h3>
     <a href="http://cloudberry.ics.uci.edu"><img src="img/tweet.png" width="100%"></a>
   </div>
 
