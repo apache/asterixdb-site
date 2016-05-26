@@ -88,9 +88,9 @@ If you would like to know more about how to contribute to AsterixDB or any of it
 ### Download
    <p><a class="btn btn-md btn-success" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i></a>
       <a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb/" role="button">GitHub <i class="fa fa-github fa-lg"></i></a></p>
-   [Installation Guide]({{ site.DOCS_BASE_URL }}/install.html)
+   [Installation Guide]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/install.html)
 
-   [AsterixDB 101]({{ site.DOCS_BASE_URL }}/aql/primer.html)
+   [AsterixDB 101]({{ site.DOCS_BASE_URL }}//{{ site.STABLE_VERSION }}/aql/primer.html)
   </div>
 </div>
 
