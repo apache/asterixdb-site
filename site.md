@@ -22,11 +22,11 @@ A full tutorial about how to use Jekyll is out of the scope of this document, bu
 
 The website is managed using `git`. Clone the site as usual
 
-    ➤ git clone -b asf-site https://git-wip-us.apache.org/repos/asf/incubator-asterixdb-site.git
+    ➤ git clone -b asf-site https://git-wip-us.apache.org/repos/asf/asterixdb-site.git
 
 and `cd` into the clone
 
-    ➤ cd incubator-asterixdb-site
+    ➤ cd asterixdb-site
 
 You will notice lots of Markdown files and HTML templates in the repository root. The compiled content of the website itself is served from the `content/` folder in this repository. That is to say, that the actual content of the website itself, as well as its sources are stored in the same repository. Additionally, the main branch on this repository is `asf-site` and not `master`
 
@@ -82,7 +82,7 @@ Then, push the exact commit from the Gerrit web interface to the ASF git reposit
 If jekyll produces an error message like this one:
 
     ➤ jekyll serve --watch
-    Configuration file: /.../incubator-asterixdb-site/_config.yml
+    Configuration file: /.../asterixdb-site/_config.yml
     You are missing a library required for syntax highlighting. Please run:
     $ [sudo] gem install pygments
     jekyll 3.1.2 | Error:  uninitialized constant Kramdown::Converter::PygmentsHtml::FatalException

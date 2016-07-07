@@ -12,14 +12,13 @@ title: Download
 
 Apache AsterixDB&trade; source releases as a tarball/zip are available on the ASF mirror of your choice.
 
-Feel free to browse and download the source tree of AsterixDB (and Hyracks) from our GitHub mirror.
+Feel free to browse and download the source tree of AsterixDB from our GitHub mirror.
 
 </div>
 <div class="col-md-6" markdown="1">
 
 <p><a class="btn btn-md btn-info" href="https://www.apache.org/dyn/closer.cgi/incubator/asterixdb" role="button">Source Tarballs <i class="fa fa-download fa-lg"></i></a></p>
-<p><a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb/" role="button">AsterixDB on GitHub <i class="fa fa-github fa-lg"></i></a></p>
-<p><a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb-hyracks/" role="button">Hyracks on GitHub <i class="fa fa-github fa-lg"></i></a></p>
+<p><a class="btn btn-md btn-info" href="https://github.com/apache/asterixdb" role="button">AsterixDB on GitHub <i class="fa fa-github fa-lg"></i></a></p>
 
 </div>
 </div>
