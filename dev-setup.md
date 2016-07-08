@@ -39,53 +39,46 @@ If you are a developer simply looking for a snapshot of the latest development v
 
 ### Steps
 
-1. Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is `$HOME/workspace`.
+1. Check out AsterixDB master in one folder via git in the command line. Assume that the path is `$HOME/workspace`.
 
-            git clone https://github.com/apache/incubator-asterixdb/
-            git clone https://github.com/apache/incubator-asterixdb-hyracks/
+            git clone https://github.com/apache/asterixdb/
 
-    You will now have `$HOME/workspace/incubator-asterixdb/` and `$HOME/workspace/incubator-asterixdb-hyracks/`.
+    You will now have `$HOME/workspace/asterixdb/`.
 
-2. Go to the hyracks and install it's artifacts to the local Maven repository by executing the following commands:
+2. Go to the asterixdb folder and install it's artifacts to the local Maven repository by executing the following commands:
 
 
-            cd incubator-asterixdb-hyracks/
+            cd asterixdb/
             mvn install -DskipTests
 
-
-3. Go to the asterixdb folder and perform the same action:
-
-             cd ../incubator-asterixdb/asterix-maven-plugins/
-             mvn install -DskipTests
-             cd ../
-             mvn install -DskipTests
-
-4. In Eclipse, import hyracks as an existing Maven Project.
+3. In Eclipse, import asterixdb as an existing Maven Project.
 * `File -> Import -> Maven -> Existing Maven Projects -> Next`
-* Specify the Root directory as `incubator-asterixdb-hyracks` and then click Next until Finish is enabled.
+* Specify the Root directory as `asterixdb` and then click Next until Finish is enabled.
 * If Eclipse tries to install the `m2e` (Maven To Eclipse) connector, let it do so.
 * There might be some plugin errors; however, that is not a big deal. Wait until the job finishes.
-* Then, click Finish.
+* Then, click Finish. Restart Eclipse if asked to do so.
 
-5. Then import asterixdb as an existing Maven Project.
-* `File -> Import -> Maven -> Existing Maven Projects -> Next`
-* Specify root directory as `$HOME/workspace/asterixdb` and then click Next until Finish is enabled.
-* Eclipse may try installing `m2e` or other plugins again; let it do so.
-* Then, click Finish.
-6. Fix Eclipse's build path to include compile-time generated sources.
+4. Fix Eclipse's build path to include compile-time generated sources.
 * Right click the project where a red X mark is shown(e.g. `asterix-algebra`. Then resolve by applying the following:
   * Right click asterix-algebra. Click Build Path and Configure Build Path. Click Add Folder.
-  * Under the `target -> generated sources`, check the parent folder of the `edu` folder and click OK.
+  * Under the `target -> generated sources`, check the parent folder of the `org` folder and click OK.
   * For example, if the directory structure is "target - generated-sources - javacc - org - apache ...", check the javacc directory and click OK. Then X mark will dissapear.
 * Repeat this step to all projects which show a red X mark except "asterix-fuzzyjoin" and "asterix-transactions".
-* It may be the case that only "asterix-algebra" and "asterix-runtime" will require these steps.
-7. Set up Eclipse code formatting rules
+* It may be the case that only "asterix-algebra" and "asterix-external-data" will require these steps.
+* If you see "plugin execution not covered by lifecycle configuration" errors such as this one - "Plugin execution not covered by lifecycle configuration: org.apache.asterix:asterix-test-datagenerator-maven-plugin:0.8.9-SNAPSHOT:generate-testdata (execution: replace-template-data, phase: process-test-resources)", try to resolve it using the quick fix feature. You can call this feature by right click on the error and select "quick fix". And then choose "Mark goal generate-testdata as ignored in Eclipse build in Eclipse preferences". 
+
+5. Set up Eclipse code formatting rules
 * Download files [AsterixCodeFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml) 
     [AsterixCleanupFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml)
 * Import profiles into Eclipse
   * Preferences -> Java -> Code style -> Formatter -> Import -> Select AsterixCodeFormatProfile.xml
   * Preferences -> Java -> Code style -> Clean up -> Import -> Select AsterixCleanupFormatProfile.xml
   * Preferences -> Java -> Editor -> Save actions -> Perform the selected action on save -> Format source code
+
+6. Lastly, go to the asterixdb folder and execute following command again. This is required since Eclipse might have cleaned the projects and rebuilt the them without creating all necessary classes. Currently, some of the class files can be only built using mvn command.
+
+            cd asterixdb/
+            mvn install -DskipTests
 
 ---
 

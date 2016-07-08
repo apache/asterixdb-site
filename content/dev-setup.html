@@ -167,45 +167,27 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
 
 <ol>
   <li>
-    <p>Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</p>
+    <p>Check out AsterixDB master in one folder via git in the command line. Assume that the path is <code>$HOME/workspace</code>.</p>
 
-    <pre><code>     git clone https://github.com/apache/incubator-asterixdb/
-     git clone https://github.com/apache/incubator-asterixdb-hyracks/
+    <pre><code>     git clone https://github.com/apache/asterixdb/
 </code></pre>
 
-    <p>You will now have <code>$HOME/workspace/incubator-asterixdb/</code> and <code>$HOME/workspace/incubator-asterixdb-hyracks/</code>.</p>
+    <p>You will now have <code>$HOME/workspace/asterixdb/</code>.</p>
   </li>
   <li>
-    <p>Go to the hyracks and install it’s artifacts to the local Maven repository by executing the following commands:</p>
+    <p>Go to the asterixdb folder and install it’s artifacts to the local Maven repository by executing the following commands:</p>
 
-    <pre><code>     cd incubator-asterixdb-hyracks/
+    <pre><code>     cd asterixdb/
      mvn install -DskipTests
 </code></pre>
   </li>
-  <li>
-    <p>Go to the asterixdb folder and perform the same action:</p>
-
-    <pre><code>      cd ../incubator-asterixdb/asterix-maven-plugins/
-      mvn install -DskipTests
-      cd ../
-      mvn install -DskipTests
-</code></pre>
-  </li>
-  <li>In Eclipse, import hyracks as an existing Maven Project.
+  <li>In Eclipse, import asterixdb as an existing Maven Project.
     <ul>
       <li><code>File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects -&gt; Next</code></li>
-      <li>Specify the Root directory as <code>incubator-asterixdb-hyracks</code> and then click Next until Finish is enabled.</li>
+      <li>Specify the Root directory as <code>asterixdb</code> and then click Next until Finish is enabled.</li>
       <li>If Eclipse tries to install the <code>m2e</code> (Maven To Eclipse) connector, let it do so.</li>
       <li>There might be some plugin errors; however, that is not a big deal. Wait until the job finishes.</li>
-      <li>Then, click Finish.</li>
-    </ul>
-  </li>
-  <li>Then import asterixdb as an existing Maven Project.
-    <ul>
-      <li><code>File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects -&gt; Next</code></li>
-      <li>Specify root directory as <code>$HOME/workspace/asterixdb</code> and then click Next until Finish is enabled.</li>
-      <li>Eclipse may try installing <code>m2e</code> or other plugins again; let it do so.</li>
-      <li>Then, click Finish.</li>
+      <li>Then, click Finish. Restart Eclipse if asked to do so.</li>
     </ul>
   </li>
   <li>Fix Eclipse’s build path to include compile-time generated sources.
@@ -213,12 +195,13 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
       <li>Right click the project where a red X mark is shown(e.g. <code>asterix-algebra</code>. Then resolve by applying the following:
         <ul>
           <li>Right click asterix-algebra. Click Build Path and Configure Build Path. Click Add Folder.</li>
-          <li>Under the <code>target -&gt; generated sources</code>, check the parent folder of the <code>edu</code> folder and click OK.</li>
+          <li>Under the <code>target -&gt; generated sources</code>, check the parent folder of the <code>org</code> folder and click OK.</li>
           <li>For example, if the directory structure is “target - generated-sources - javacc - org - apache …”, check the javacc directory and click OK. Then X mark will dissapear.</li>
         </ul>
       </li>
       <li>Repeat this step to all projects which show a red X mark except “asterix-fuzzyjoin” and “asterix-transactions”.</li>
-      <li>It may be the case that only “asterix-algebra” and “asterix-runtime” will require these steps.</li>
+      <li>It may be the case that only “asterix-algebra” and “asterix-external-data” will require these steps.</li>
+      <li>If you see “plugin execution not covered by lifecycle configuration” errors such as this one - “Plugin execution not covered by lifecycle configuration: org.apache.asterix:asterix-test-datagenerator-maven-plugin:0.8.9-SNAPSHOT:generate-testdata (execution: replace-template-data, phase: process-test-resources)”, try to resolve it using the quick fix feature. You can call this feature by right click on the error and select “quick fix”. And then choose “Mark goal generate-testdata as ignored in Eclipse build in Eclipse preferences”.</li>
     </ul>
   </li>
   <li>Set up Eclipse code formatting rules
@@ -233,6 +216,13 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
         </ul>
       </li>
     </ul>
+  </li>
+  <li>
+    <p>Lastly, go to the asterixdb folder and execute following command again. This is required since Eclipse might have cleaned the projects and rebuilt the them without creating all necessary classes. Currently, some of the class files can be only built using mvn command.</p>
+
+    <pre><code>     cd asterixdb/
+     mvn install -DskipTests
+</code></pre>
   </li>
 </ol>
 
