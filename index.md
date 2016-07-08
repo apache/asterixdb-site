@@ -10,17 +10,17 @@ layout: default
 <div class="row">
   <div class="col-lg-4" markdown="1">
 ### Key Features ###
-* [<strong>Flexible</strong>](docs/0.8.8-incubating/aql/datamodel.html) data model
+* [<strong>Flexible</strong>]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/aql/datamodel.html) data model
 * [<strong>Distributed</strong>](http://asterix.ics.uci.edu/pub/vldb14-storage.pdf) storage and transaction
-* [<strong>Fast</strong>](docs/0.8.8-incubating/feeds/tutorial.html) data ingestion
+* [<strong>Fast</strong>]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/feeds/tutorial.html) data ingestion
 * [<strong>Scalable</strong>](http://asterix.ics.uci.edu/pub/ICDE11_conf_full_690.pdf), data-parallel query execution runtime
-* [<strong>Declarative</strong>](docs/0.8.8-incubating/aql/manual.html) query language
+* [<strong>Declarative</strong>]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/aql/manual.html) query language
 
 <strong>AsterixDB</strong> supports various storage and indexing options:
 
-* [<strong>Managed datasets</strong>](docs/0.8.8-incubating/aql/primer.html), internal LSM-based storage
-* [<strong>External datasets</strong>](docs/0.8.8-incubating/aql/externaldata.html), e.g., data on HDFS
-* [<strong>Secondary indexes</strong>](docs/0.8.8-incubating/aql/primer.html), for both storage options.
+* [<strong>Managed datasets</strong>]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/aql/primer.html), internal LSM-based storage
+* [<strong>External datasets</strong>]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/aql/externaldata.html), e.g., data on HDFS
+* [<strong>Secondary indexes</strong>]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/aql/primer.html), for both storage options.
 
  </div>
 
@@ -80,17 +80,17 @@ layout: default
   </div>
   <div class="col-md-4" markdown="1">
 ### Community and Support
-If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.incubator.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.incubator.apache.org). Check out the [Community]({{ site.url }}community.html) page for more details.
+If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.apache.org). Check out the [Community]({{ site.url }}community.html) page for more details.
 
 If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing]({{ site.url }}dev-setup.html) page to learn more.
   </div>
   <div class="col-md-4" markdown="1">
 ### Download
    <p><a class="btn btn-md btn-success" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i></a>
-      <a class="btn btn-md btn-info" href="https://github.com/apache/incubator-asterixdb/" role="button">GitHub <i class="fa fa-github fa-lg"></i></a></p>
+      <a class="btn btn-md btn-info" href="https://github.com/apache/asterixdb/" role="button">GitHub <i class="fa fa-github fa-lg"></i></a></p>
    [Installation Guide]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/install.html)
 
-   [AsterixDB 101]({{ site.DOCS_BASE_URL }}//{{ site.STABLE_VERSION }}/aql/primer.html)
+   [AsterixDB 101]({{ site.DOCS_BASE_URL }}/{{ site.STABLE_VERSION }}/aql/primer.html)
   </div>
 </div>
 

@@ -17,7 +17,7 @@ Feel free to browse and download the source tree of AsterixDB from our GitHub mi
 </div>
 <div class="col-md-6" markdown="1">
 
-<p><a class="btn btn-md btn-info" href="https://www.apache.org/dyn/closer.cgi/incubator/asterixdb" role="button">Source Tarballs <i class="fa fa-download fa-lg"></i></a></p>
+<p><a class="btn btn-md btn-info" href="https://www.apache.org/dyn/closer.cgi/asterixdb" role="button">Source Tarballs <i class="fa fa-download fa-lg"></i></a></p>
 <p><a class="btn btn-md btn-info" href="https://github.com/apache/asterixdb" role="button">AsterixDB on GitHub <i class="fa fa-github fa-lg"></i></a></p>
 
 </div>
