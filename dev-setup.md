@@ -34,22 +34,21 @@ If you are a developer simply looking for a snapshot of the latest development v
 ### Prerequisites
   * A suitable \*nix environment (Linux, OSX)
   * JDK 1.8+
-  * Maven 3.1.1 or greater
+  * Maven 3.3.9 or greater
   * A relatively recent version of Eclipse
 
 ### Steps
 
 1. Check out AsterixDB master in one folder via git in the command line. Assume that the path is `$HOME/workspace`.
 
-            git clone https://github.com/apache/asterixdb/
+        git clone https://github.com/apache/asterixdb/
 
     You will now have `$HOME/workspace/asterixdb/`.
 
 2. Go to the asterixdb folder and install it's artifacts to the local Maven repository by executing the following commands:
 
-
-            cd asterixdb/
-            mvn install -DskipTests
+        cd asterixdb/
+        mvn install -DskipTests
 
 3. In Eclipse, import asterixdb as an existing Maven Project.
 * `File -> Import -> Maven -> Existing Maven Projects -> Next`
@@ -77,8 +76,8 @@ If you are a developer simply looking for a snapshot of the latest development v
 
 6. Lastly, go to the asterixdb folder and execute following command again. This is required since Eclipse might have cleaned the projects and rebuilt the them without creating all necessary classes. Currently, some of the class files can be only built using mvn command.
 
-            cd asterixdb/
-            mvn install -DskipTests
+        cd asterixdb/
+        mvn install -DskipTests
 
 ---
 
@@ -141,11 +140,11 @@ git clone https://github.com/ceejatec/git-gerrit
 
   1. To work on (say) Asterix, first clone the GitHub mirror or the ASF repository (if you already have a local clone, great!), e.g.
 
-        git clone https://github.com/apache/incubator-asterixdb
+         git clone https://github.com/apache/asterixdb
 
   1. `cd` into the clone repo directory, and then run the following command to create the "gerrit" remote.
 
-        git gerrit init
+         git gerrit init
 
 
 ---
@@ -155,7 +154,7 @@ git clone https://github.com/ceejatec/git-gerrit
   1. When you want to start working on a bug, feature, etc, first make a local `git` branch. Never work directly on 
     `master`! `master` should always be a pure mirror of `origin/master`, i.e., the GitHub mirror or the ASF repository.
 
-            git checkout -b my_branch
+         git checkout -b my_branch
 
   1. Make your changes, test them, etc. Feel free to `git commit` as often as you like.
 
@@ -163,23 +162,23 @@ git clone https://github.com/ceejatec/git-gerrit
 
   1. Every so often, you should update your local `master` mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with `master`. There are a number of ways to do this, but `git-gerrit` provides a convenience function:
 
-            git gerrit update
+         git gerrit update
 
   1. When you are ready to submit changes for code review, first ensure that you have committed everything locally that is necessary (`git status` should report "nothing to commit, working directory clean"). This is also a good time to update (see step 4). Then run:
 
-            git gerrit submit
+         git gerrit submit
 
   1. This will pop open your editor to invite you to create a good commit message. This will be the single commit message which will be the only one to appear in the project's master git history. Take the time to make it clear. The editor will contain the log messages of everything you committed on your branch as a reminder, but generally you will want to delete all this and replace it with a comprehensive message. Also: As noted in the initial message, the last line of the buffer will contain a `Change-Id` field. Do not delete that line! It is used by Gerrit to identify this particular merge proposal.
   1. When you save your commit message, git-gerrit will push all of the changes from your working branch up to Gerrit. Assuming no errors, you should see output similar to the following:
 
-            remote: Resolving deltas: 100% (1/1)
-            remote: Processing changes: new: 1, refs: 1, done    
-            remote: 
-            remote: New Changes:
-            remote:   http://fulliautomatix.ics.uci.edu:8443/30
-            remote: 
-            To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
-             * [new branch]      HEAD -> refs/for/master
+         remote: Resolving deltas: 100% (1/1)
+         remote: Processing changes: new: 1, refs: 1, done
+         remote:
+         remote: New Changes:
+         remote:   http://fulliautomatix.ics.uci.edu:8443/30
+         remote:
+         To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
+          * [new branch]      HEAD -> refs/for/master
 
   1. That URL under "New Changes" is your code review! Send it to others to request reviews.
   1. If you get any negative code reviews and need to make changes, you can just repeat steps 2 - 6 of the working method. Your local branch will still have all the history you put there, if you need to revert changes or look back and see what you did, etc.
@@ -216,15 +215,5 @@ One way to perform this is by simply visiting the link that is posted on Gerrit 
 
 #### Manual Trigger
 Builds of Gerrit patches can also be fully manually triggered from Jenkins. This can be desirable if a change is now dependent on a Hyracks change (via the Topic field feature described below), or if the patch is a draft or is not triggered automatically for any other reason. To manually trigger a build of a patchset, visit the Jenkins front-page, and click the 'Query and Trigger Gerrit patches' link. This should link to a page allowing you to manually trigger Gerrit patches. In the search field any query that can be searched in the Gerrit web interface can be used, but the default query of all open patchsets is likely fine. Hit the 'Search' button, and then click the checkbox that represents the patch that needs to be built. Then simply click 'Trigger Selected' and the patch will start building.
-
-### Cross-project Dependencies
-
-It is sometimes the case that a change in one related project alters interfaces or expected results that an upstream project relies on. The converse can be true as well, such as an AsterixDB change that needs a Hyracks feature. In these sorts of situations, there is a mechanism to describe to Jenkins this dependenc of one project's patchset to a particular Hyracks Change, by using the 'Topic' field in Gerrit. To utilize
-this feature, perform the following steps:
-
-  1. First submit the Hyracks change which the upstream (AsterixDB,etc..) change depends on if you have not done so already
-  1. In the Hyracks change details on the Gerrit web interface, take note of the refspec in the _Download_ field of the patchset details. It will look something like `refs/changes/07/207/1`. This is what uniquely identifies the Hyracks change in Gerrit.
-  1. Submit the dependent change now, if you have not done so already. In the Gerrit web interface, view the change's details. In the upper left-hand corner, there will be an empty field in a table, labeled `Topic`, with a notepad icon right-justified in the second column of the table. Click the notepad Icon, and in the resulting dialog box, enter in the refspec (`refs/changes/07/207/1`) as the Topic value.
-  1. Now, manually trigger the dependent change in Jenkins (see previous section for details)
 
 ---
