@@ -29,7 +29,7 @@ If you are a developer simply looking for a snapshot of the latest development v
 
 ---
 
-## Setting up an Asterix Development environment in Eclipse
+## Setting up an Asterix Development environment
 
 ### Prerequisites
   * A suitable \*nix environment (Linux, OSX)
@@ -38,6 +38,8 @@ If you are a developer simply looking for a snapshot of the latest development v
   * A relatively recent version of Eclipse
 
 ### Steps
+
+#### General setup
 
 1. Check out AsterixDB master in one folder via git in the command line. Assume that the path is `$HOME/workspace`.
 
@@ -49,6 +51,28 @@ If you are a developer simply looking for a snapshot of the latest development v
 
         cd asterixdb/
         mvn install -DskipTests
+
+#### IntelliJ IDEA IDE Setup
+
+
+3. In IntelliJ IDEA, import asterixdb as an existing Maven Project.
+* `File -> New -> Project from existing sources`, or `Import project...' when on a new install
+* Then, select the 'pom.xml' in the root of the checked out git repository.
+* The default options for import should suffice, so just click `Next`
+* Also click `Next` when selecting for profiles and versions
+* On the JDK Selection screen, be sure to select a JDK > 1.8, OpenJDK or Oracle is fine.
+* Give IntelliJ some time to import the Maven project and its dependencies
+* Once everything is finished, you should see 'asterixdb' and 'hyracks-fullstack' modules in the "Project" view.
+
+4. Set up IntelliJ code formatting rules
+* Download files [AsterixCodeFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml)
+    [AsterixCleanupFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml)
+* Import profiles into IntelliJ
+    * `File -> Settings -> Editor -> Code Style -> Java`
+    * Then, click the `Manage...` button
+    * Click `Import` and import the `AsterixCodeFormatProfile.xml` as an Eclipse XML profile.
+
+#### Eclipse IDE Setup
 
 3. In Eclipse, import asterixdb as an existing Maven Project.
 * `File -> Import -> Maven -> Existing Maven Projects -> Next`
@@ -85,7 +109,7 @@ If you are a developer simply looking for a snapshot of the latest development v
 
 First, to contribute patches to AsterixDB, you should have an ICLA on file with the Apache Software Foundation.
 For details see the ASF website [here](https://www.apache.org/dev/new-committers-guide.html#cla)
-You should only need to perform the following steps once. 
+You should only need to perform the following steps once.
 
 Our Gerrit server is [here](https://asterix-gerrit.ics.uci.edu/)
 
@@ -151,7 +175,7 @@ git clone https://github.com/ceejatec/git-gerrit
 
 ## Making Changes - working method
 
-  1. When you want to start working on a bug, feature, etc, first make a local `git` branch. Never work directly on 
+  1. When you want to start working on a bug, feature, etc, first make a local `git` branch. Never work directly on
     `master`! `master` should always be a pure mirror of `origin/master`, i.e., the GitHub mirror or the ASF repository.
 
          git checkout -b my_branch

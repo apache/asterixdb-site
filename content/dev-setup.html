@@ -113,7 +113,7 @@
       <li><a href="#yarn-installer" id="markdown-toc-yarn-installer">YARN Installer</a></li>
     </ul>
   </li>
-  <li><a href="#setting-up-an-asterix-development-environment-in-eclipse" id="markdown-toc-setting-up-an-asterix-development-environment-in-eclipse">Setting up an Asterix Development environment in Eclipse</a>    <ul>
+  <li><a href="#setting-up-an-asterix-development-environment" id="markdown-toc-setting-up-an-asterix-development-environment">Setting up an Asterix Development environment</a>    <ul>
       <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
       <li><a href="#steps" id="markdown-toc-steps">Steps</a></li>
     </ul>
@@ -152,7 +152,7 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
 
 <hr />
 
-<h2 id="setting-up-an-asterix-development-environment-in-eclipse">Setting up an Asterix Development environment in Eclipse</h2>
+<h2 id="setting-up-an-asterix-development-environment">Setting up an Asterix Development environment</h2>
 
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
@@ -163,6 +163,8 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
 </ul>
 
 <h3 id="steps">Steps</h3>
+
+<h4 id="general-setup">General setup</h4>
 
 <ol>
   <li>
@@ -180,6 +182,37 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
  mvn install -DskipTests
 </code></pre>
   </li>
+</ol>
+
+<h4 id="intellij-idea-ide-setup">IntelliJ IDEA IDE Setup</h4>
+
+<ol>
+  <li>In IntelliJ IDEA, import asterixdb as an existing Maven Project.
+    <ul>
+      <li><code>File -&gt; New -&gt; Project from existing sources</code>, or `Import project…’ when on a new install</li>
+      <li>Then, select the ‘pom.xml’ in the root of the checked out git repository.</li>
+      <li>The default options for import should suffice, so just click <code>Next</code></li>
+      <li>Also click <code>Next</code> when selecting for profiles and versions</li>
+      <li>On the JDK Selection screen, be sure to select a JDK &gt; 1.8, OpenJDK or Oracle is fine.</li>
+      <li>Give IntelliJ some time to import the Maven project and its dependencies</li>
+      <li>Once everything is finished, you should see ‘asterixdb’ and ‘hyracks-fullstack’ modules in the “Project” view.</li>
+    </ul>
+  </li>
+  <li>Set up IntelliJ code formatting rules
+    <ul>
+      <li>Download files <a href="https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml">AsterixCodeFormatProfile.xml</a>
+ <a href="https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml">AsterixCleanupFormatProfile.xml</a></li>
+      <li>Import profiles into IntelliJ</li>
+      <li><code>File -&gt; Settings -&gt; Editor -&gt; Code Style -&gt; Java</code></li>
+      <li>Then, click the <code>Manage...</code> button</li>
+      <li>Click <code>Import</code> and import the <code>AsterixCodeFormatProfile.xml</code> as an Eclipse XML profile.</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="eclipse-ide-setup">Eclipse IDE Setup</h4>
+
+<ol>
   <li>In Eclipse, import asterixdb as an existing Maven Project.
     <ul>
       <li><code>File -&gt; Import -&gt; Maven -&gt; Existing Maven Projects -&gt; Next</code></li>
