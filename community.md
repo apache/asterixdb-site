@@ -14,12 +14,12 @@ answers to any AsterixDB-related questions.
 Most AsterixDB and Hyracks related discussion takes place on these mailing lists. To subscribe, send a blank email to the subscription address.
 
 {:.table .table-striped .table-bordered}
-| Name          | Address                                      | Subscribe Address                                      | Archives |
-|---------------|----------------------------------------------|--------------------------------------------------------|----------|
-| dev           | dev@asterixdb.incubator.apache.org           | dev-subscribe@asterixdb.incubator.apache.org           | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-dev/)|
-| users         | users@asterixdb.incubator.apache.org         | users-subscribe@asterixdb.incubator.apache.org         | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-users/)|
-| commits       | commits@asterixdb.incubator.apache.org       | commits-subscribe@asterixdb.incubator.apache.org       | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-commits/)|
-| notifications | notifications@asterixdb.incubator.apache.org | notifications-subscribe@asterixdb.incubator.apache.org | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-notifications/)|
+| Name          | Address                            | Subscribe Address                            | Archives |
+|---------------|------------------------------------|----------------------------------------------|----------|
+| dev           | dev@asterixdb.apache.org           | dev-subscribe@asterixdb.apache.org           | [link](https://mail-archives.apache.org/mod_mbox/asterixdb-dev/)|
+| users         | users@asterixdb.apache.org         | users-subscribe@asterixdb.apache.org         | [link](https://mail-archives.apache.org/mod_mbox/asterixdb-users/)|
+| commits       | commits@asterixdb.apache.org       | commits-subscribe@asterixdb.apache.org       | [link](https://mail-archives.apache.org/mod_mbox/asterixdb-commits/)|
+| notifications | notifications@asterixdb.apache.org | notifications-subscribe@asterixdb.apache.org | [link](https://mail-archives.apache.org/mod_mbox/asterixdb-notifications/)|
 
 ### IRC
 

@@ -35,7 +35,7 @@ If you are a developer simply looking for a snapshot of the latest development v
   * A suitable \*nix environment (Linux, OSX)
   * JDK 1.8+
   * Maven 3.3.9 or greater
-  * A relatively recent version of Eclipse
+  * Eclipse Juno (or later) or IntelliJ IDEA 15.0 (or later)
 
 ### Steps
 
@@ -75,28 +75,28 @@ If you are a developer simply looking for a snapshot of the latest development v
 #### Eclipse IDE Setup
 
 3. In Eclipse, import asterixdb as an existing Maven Project.
-* `File -> Import -> Maven -> Existing Maven Projects -> Next`
-* Specify the Root directory as `asterixdb` and then click Next until Finish is enabled.
-* If Eclipse tries to install the `m2e` (Maven To Eclipse) connector, let it do so.
-* There might be some plugin errors; however, that is not a big deal. Wait until the job finishes.
-* Then, click Finish. Restart Eclipse if asked to do so.
+  * `File -> Import -> Maven -> Existing Maven Projects -> Next`
+  * Specify the Root directory as `asterixdb` and then click Next until Finish is enabled.
+  * If Eclipse tries to install the `m2e` (Maven To Eclipse) connector, let it do so.
+  * There might be some plugin errors; however, that is not a big deal. Wait until the job finishes.
+  * Then, click Finish. Restart Eclipse if asked to do so.
 
 4. Fix Eclipse's build path to include compile-time generated sources.
-* Right click the project where a red X mark is shown(e.g. `asterix-algebra`. Then resolve by applying the following:
-  * Right click asterix-algebra. Click Build Path and Configure Build Path. Click Add Folder.
-  * Under the `target -> generated sources`, check the parent folder of the `org` folder and click OK.
-  * For example, if the directory structure is "target - generated-sources - javacc - org - apache ...", check the javacc directory and click OK. Then X mark will dissapear.
-* Repeat this step to all projects which show a red X mark except "asterix-fuzzyjoin" and "asterix-transactions".
-* It may be the case that only "asterix-algebra" and "asterix-external-data" will require these steps.
-* If you see "plugin execution not covered by lifecycle configuration" errors such as this one - "Plugin execution not covered by lifecycle configuration: org.apache.asterix:asterix-test-datagenerator-maven-plugin:0.8.9-SNAPSHOT:generate-testdata (execution: replace-template-data, phase: process-test-resources)", try to resolve it using the quick fix feature. You can call this feature by right click on the error and select "quick fix". And then choose "Mark goal generate-testdata as ignored in Eclipse build in Eclipse preferences". 
+  * Right click the project where a red X mark is shown(e.g. `asterix-algebra`. Then resolve by applying the following:
+       * Right click asterix-algebra. Click Build Path and Configure Build Path. Click Add Folder.
+       * Under the `target -> generated sources`, check the parent folder of the `org` folder and click OK.
+       * For example, if the directory structure is "target - generated-sources - javacc - org - apache ...", check the javacc directory and click OK. Then X mark will dissapear.
+  * Repeat this step to all projects which show a red X mark except "asterix-fuzzyjoin" and "asterix-transactions".
+  * It may be the case that only "asterix-algebra" and "asterix-external-data" will require these steps.
+  * If you see "plugin execution not covered by lifecycle configuration" errors such as this one - "Plugin execution not covered by lifecycle configuration: org.apache.asterix:asterix-test-datagenerator-maven-plugin:0.8.9-SNAPSHOT:generate-testdata (execution: replace-template-data, phase: process-test-resources)", try to resolve it using the quick fix feature. You can call this feature by right click on the error and select "quick fix". And then choose "Mark goal generate-testdata as ignored in Eclipse build in Eclipse preferences".
 
 5. Set up Eclipse code formatting rules
-* Download files [AsterixCodeFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml) 
-    [AsterixCleanupFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml)
-* Import profiles into Eclipse
-  * Preferences -> Java -> Code style -> Formatter -> Import -> Select AsterixCodeFormatProfile.xml
-  * Preferences -> Java -> Code style -> Clean up -> Import -> Select AsterixCleanupFormatProfile.xml
-  * Preferences -> Java -> Editor -> Save actions -> Perform the selected action on save -> Format source code
+  * Download files [AsterixCodeFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCodeFormatProfile.xml)
+      [AsterixCleanupFormatProfile.xml](https://cwiki.apache.org/confluence/download/attachments/61322291/AsterixCleanupFormatProfile.xml)
+  * Import profiles into Eclipse
+       * Preferences -> Java -> Code style -> Formatter -> Import -> Select AsterixCodeFormatProfile.xml
+       * Preferences -> Java -> Code style -> Clean up -> Import -> Select AsterixCleanupFormatProfile.xml
+       * Preferences -> Java -> Editor -> Save actions -> Perform the selected action on save -> Format source code
 
 6. Lastly, go to the asterixdb folder and execute following command again. This is required since Eclipse might have cleaned the projects and rebuilt the them without creating all necessary classes. Currently, some of the class files can be only built using mvn command.
 
@@ -116,31 +116,27 @@ Our Gerrit server is [here](https://asterix-gerrit.ics.uci.edu/)
   1. Visit the above URL, and click on "Register" in the upper right.
   1. Gerrit uses OpenID; you may create an account using any OpenID provider, or with a Yahoo! account.
   1. Click on "Sign in with a Yahoo! ID". You will be taken to a page to log in to Yahoo!.
-  1. From there, you will get a page asking you to allow asterix-gerrit.ics.uci.edu to access your email and basic information.  Approve this request.
+  1. From there, you will get a page asking you to allow `asterix-gerrit.ics.uci.edu` to access your email and basic information.  Approve this request.
   1. You will be directed back to Gerrit to complete the account signup. Make sure to fill out this page! It is necessary to allow you to push code changes to Gerrit for review.
   1. For "Full Name" and "Preferred Email", enter what you like. If you would like to register a different email address such as an @uci.edu address, you may do so. This is where Gerrit will send you notifications about code review requests, voting, and so on.
   1. For "Select a unique username", choose a short alphanumeric ID. This will be your ssh username for git access. Be sure to click "Select Username" to verify that the name is unique and allowed.
   1. Also provide a ssh public key here. There is information on the page on creating one if you do not have one. Click "Add" when done.
-    * Note that you can create a new ssh public key just for Gerrit if you like; if you do so you will need to modify your .ssh/config file to ensure the right key is selected.
+     Note that you can create a new ssh public key just for Gerrit if you like; if you do so you will need to modify your `.ssh/config` file to ensure the right key is selected.
   1. Click "Continue" at the bottom of the page.
   1. Finally, verify that you have everything set up: From a command-line, type
-```
-ssh -p 29418 username@asterix-gerrit.ics.uci.edu
-```
+
+         ssh -p 29418 username@asterix-gerrit.ics.uci.edu
 
   1. You should see
 
-```
-  ****    Welcome to Gerrit Code Review    ****
+         ****    Welcome to Gerrit Code Review    ****
 
-  Hi Full Name, you have successfully connected over SSH.
+         Hi Full Name, you have successfully connected over SSH.
 
-  Unfortunately, interactive shells are disabled.
-  To clone a hosted Git repository, use:
+         Unfortunately, interactive shells are disabled.
+         To clone a hosted Git repository, use:
 
-  git clone ssh://username@asterix-gerrit.ics.uci.edu:29418/REPOSITORY_NAME.git
-
-```
+         git clone ssh://username@asterix-gerrit.ics.uci.edu:29418/REPOSITORY_NAME.git
 
 At this point, please send an email to Chris or Ian, specifying the email address of your new account, and ask to be added to the "AsterixDB Devs" group. You may push change proposals to Gerrit, and vote +1/-1 Code Review on any proposals without being in AsterixDB Devs, but you cannot vote +2 on anything to allow a change to be merged.
 
@@ -151,13 +147,13 @@ At this point, please send an email to Chris or Ian, specifying the email addres
 ### One-time tasks
 
   1. At the command-line, run the following. Replace "username" with the user name you chose in step 7 above.
-```
-git config --global gerrit.url ssh://username@asterix-gerrit.ics.uci.edu:29418/
-```
+
+         git config --global gerrit.url ssh://username@asterix-gerrit.ics.uci.edu:29418/
+
   1. Download my "git-gerrit" utility library:
-```
-git clone https://github.com/ceejatec/git-gerrit
-```
+
+         git clone https://github.com/ceejatec/git-gerrit
+
   1. Ensure that the `git-gerrit/git-gerrit` script is on your PATH. You could copy it to somewhere, but it would be best to leave it inside the github clone so you can easily get updates.
 
 ### Once-per-repository tasks
@@ -217,9 +213,9 @@ Once you are done with a change (that is, it has been Code Reviewed and approved
 In that case, you may notice that the list of changes on the branch still contains older commits which have been merged. That is due to the unfortunate way Gerrit works; it requires squashing to a single git commit for review, which loses the association with the original commits in your history.
 
 It is also possible that you may want to re-use a branch and git-gerrit fails to notice that the older change has been merged - or perhaps the change was Abandoned on Gerrit and not merged, and you want to continue working on the same branch to create a new proposal. In this case, run
-```
-git gerrit new
-```
+
+    git gerrit new
+
 on your branch. This will force git-gerrit to create a new Change-Id and commit message the next time you run `git gerrit submit`.
 
 ---
@@ -228,16 +224,28 @@ on your branch. This will force git-gerrit to create a new Change-Id and commit 
 
 ### Verification
 
-As of right now, whenever a patch set is submitted to Gerrit (i.e. whenever a user performs 'git gerrit submit') are automatically picked up by Jenkins, which runs `mvn verify` to test the patch fully. Once the build finishes, Jenkins comments on the patchset and votes with the result (+1 for all tests passing, -1 for anything less). Ideally, and in most cases, verifocation of a patchset reqires no intervention. However there are a few exceptions to this as detailed below.
+As of right now, whenever a patch set is submitted to Gerrit (i.e. whenever a user performs 'git gerrit submit') are automatically picked up by Jenkins, which runs `mvn verify` to test the patch fully.
+Once the build finishes, Jenkins comments on the patchset and votes with the result (+1 for all tests passing, -1 for anything less).
+Ideally, and in most cases, verification of a patchset reqires no intervention.
+However there are a few exceptions to this as detailed below.
 
 ### Retrigggering builds and triggering builds manually
 
 #### Retriggering
-Occasionally, there are builds in which tests failed, but perhaps not for a reason that has anything to do with the proposed patch's changes. For example, on occasion the Integration tests can have issues with ports on the build server already being bound. The simple work around to this is to try building again.
+Occasionally, there are builds in which tests failed, but perhaps not for a reason that has anything to do with the proposed patch's changes.
+For example, on occasion the Integration tests can have issues with ports on the build server already being bound.
+The simple work around to this is to try building again.
 
-One way to perform this is by simply visiting the link that is posted on Gerrit by Jenkins, and hitting the 'Retrigger' link on the left-hand side of the page. This will try retesting the build with the exact same parameters as last time, hopefully with a different result.
+One way to perform this is by simply visiting the link that is posted on Gerrit by Jenkins, and hitting the 'Retrigger' link on the left-hand side of the page.
+This will try retesting the build with the exact same parameters as last time, hopefully with a different result.
 
 #### Manual Trigger
-Builds of Gerrit patches can also be fully manually triggered from Jenkins. This can be desirable if a change is now dependent on a Hyracks change (via the Topic field feature described below), or if the patch is a draft or is not triggered automatically for any other reason. To manually trigger a build of a patchset, visit the Jenkins front-page, and click the 'Query and Trigger Gerrit patches' link. This should link to a page allowing you to manually trigger Gerrit patches. In the search field any query that can be searched in the Gerrit web interface can be used, but the default query of all open patchsets is likely fine. Hit the 'Search' button, and then click the checkbox that represents the patch that needs to be built. Then simply click 'Trigger Selected' and the patch will start building.
+Builds of Gerrit patches can also be fully manually triggered from Jenkins.
+This can be desirable if the patch is a draft or is not triggered automatically for any other reason.
+To manually trigger a build of a patchset, visit the Jenkins front-page, and click the 'Query and Trigger Gerrit patches' link.
+This should link to a page allowing you to manually trigger Gerrit patches.
+In the search field any query that can be searched in the Gerrit web interface can be used, but the default query of all open patchsets is likely fine.
+Hit the 'Search' button, and then click the checkbox that represents the patch that needs to be built.
+Then simply click 'Trigger Selected' and the patch will start building.
 
 ---
