@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>About Apache AsterixDB</title>
+    <title>AsterixDB Extensions</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -105,50 +105,59 @@
 
     <div class="row">
 <div class="col-md-8 col-centered">
-<h2>About Apache AsterixDB</h2>
-<p>Apache AsterixDB™ is a highly scalable data management system that can store, index, and manage semi-structured
-data, e.g., much like MongoDB, but it also supports a full-power query language with the expressiveness of SQL (and
-more).
-Unlike analytics engines like Apache Hive or Apache Spark, it stores and manages data, so AsterixDB can exploit its
-knowledge of data partitioning and the availability of indexes to avoid always scanning data set(s) to process queries.
-Somewhat surprisingly, there is no open source parallel database system (relational or otherwise) available to
-developers today – AsterixDB aims to fill this need.</p>
-
-<h3 id="core-features">Core features</h3>
-
-<ul>
-  <li>A NoSQL style data model (ADM) based on extending JSON with object
-database concepts.</li>
-  <li>An expressive and declarative query language (AQL) for querying
-semi-structured data.</li>
-  <li>A runtime query execution engine, Apache Hyracks, for partitioned-parallel
-execution of query plans.</li>
-  <li>Partitioned LSM-based data storage and indexing for efficient
-ingestion of newly arriving data.</li>
-  <li>Support for querying and indexing external data (e.g., in HDFS) as
-well as data stored within AsterixDB.</li>
-  <li>A rich set of primitive data types, including support for spatial,
-temporal, and textual data.</li>
-  <li>Indexing options that include B+ trees, R trees, and inverted
-keyword index support.</li>
-  <li>Basic transactional (concurrency and recovery) capabilities akin to
-those of a NoSQL store.</li>
+<h2>AsterixDB Extensions</h2>
+<ul id="markdown-toc">
+  <li><a href="#integrating-with-asterixdb-build" id="markdown-toc-integrating-with-asterixdb-build">Integrating with AsterixDB Build</a>    <ul>
+      <li><a href="#bill-of-materials-maven-module" id="markdown-toc-bill-of-materials-maven-module">Bill of Materials Maven Module</a></li>
+    </ul>
+  </li>
 </ul>
 
-<h3 id="history">History</h3>
+<hr />
 
-<p>Prior to being developed at the Apache Software Foundation AsterixDB was co-developed by a team of faculty, staff, and
-students at UC Irvine and UC Riverside. The project was initiated as a large NSF-sponsored project in 2009, the goal of
-which was to combine the best ideas from the parallel database world, the then new Apache Hadoop world, and the
-semi-structured (e.g., XML/JSON) data world in order to create a next-generation BDMS. A first informal open source
-release was made four years later, in June of 2013, under the Apache Software License 2.0. AsterixDB was accepted into
-the Apache Incubator in Febuary of 2015 and was established as a TLP in April of 2016.</p>
+<h2 id="integrating-with-asterixdb-build">Integrating with AsterixDB Build</h2>
 
-<h3 id="more-information">More information</h3>
+<p>Extensions can be built as part of the AsterixDB + Hyracks build by adding a module in ‘asterixdb/asterix-opt’  The
+ presence of a pom.xml in this directory adds this to the maven reactor as a sub-module of asterixdb.</p>
 
-<p>More information about AsterixDB (and its underlying frameworks Hyracks and Algebricks) can be found on the site of the
-<a href="http://asterix.ics.uci.edu/">ASTERIX project at UC Irvine</a> - especially in the
-<a href="http://asterix.ics.uci.edu/publications.html">Publications section</a>.</p>
+<h3 id="bill-of-materials-maven-module">Bill of Materials Maven Module</h3>
+
+<p>A Bill of Materials (i.e. BOM) must be provided to indicate which (if any) jars &amp; dependencies should be included in
+ the AsterixDB (e.g. asterix-server, asterix-installer, etc.) binary assemblies.  Typically, the maven module defined
+ in asterixdb/asterix-opt will have a BOM project as a sub-module.</p>
+
+<p>This BOM must have the following coordinates, as this is used as the linkage into the asterix-server binary-assembly:
+<code>org.apache.asterix:asterix-opt-bom:0.8.9-SNAPSHOT:pom</code> (<em>version must match AsterixDB project version</em>)</p>
+
+<p>Any dependencies specified in the BOM (as well as transitive dependencies) will be included in the AsterixDB binary
+  assemblies.  If no jars are desired to be included in the AsterixDB binary assemblies, the BOM need not specify any
+  dependencies.</p>
+
+<h4 id="example-bom">Example BOM</h4>
+
+<pre><code>    &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+
+      &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+      &lt;!-- project coordinates --&gt;
+      &lt;groupId&gt;org.apache.asterix&lt;/groupId&gt;
+      &lt;artifactId&gt;asterix-opt-bom&lt;/artifactId&gt;
+      &lt;version&gt;0.8.9-SNAPSHOT&lt;/version&gt;
+      &lt;name&gt;psu-nittany-bom&lt;/name&gt;
+      &lt;description&gt;Penn State Nittany Lion Seach Extension to AsterixDB&lt;/description&gt;
+
+      &lt;!-- any dependencies listed here will be included in asterix-server, etc. binary assemblies --&gt;
+      &lt;dependencies&gt;
+          &lt;dependency&gt;
+          &lt;groupId&gt;edu.psu.cs&lt;/groupId&gt;
+          &lt;artifactId&gt;nittany-search&lt;/artifactId&gt;
+          &lt;version&gt;0.1.0-SNAPSHOT&lt;/version&gt;
+          &lt;packaging&gt;pom&lt;/packaging&gt;
+        &lt;/dependency&gt;
+      &lt;/dependencies&gt;
+    &lt;/project&gt;
+</code></pre>
 
 </div>
 </div>
