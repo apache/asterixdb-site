@@ -27,9 +27,10 @@ Any dependencies specified in the BOM (as well as transitive dependencies) will 
 
 #### Example BOM
 
-```
-    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
       <modelVersion>4.0.0</modelVersion>
 
@@ -38,9 +39,10 @@ Any dependencies specified in the BOM (as well as transitive dependencies) will 
       <artifactId>asterix-opt-bom</artifactId>
       <version>0.8.9-SNAPSHOT</version>
       <name>psu-nittany-bom</name>
-      <description>Penn State Nittany Lion Seach Extension to AsterixDB</description>
+      <description>Penn State Nittany Lion Search Extension to AsterixDB</description>
 
-      <!-- any dependencies listed here will be included in asterix-server, etc. binary assemblies -->
+      <!-- any dependencies listed here will be included in -->
+      <!-- asterix-server, etc. binary assemblies -->
       <dependencies>
           <dependency>
           <groupId>edu.psu.cs</groupId>
@@ -50,4 +52,3 @@ Any dependencies specified in the BOM (as well as transitive dependencies) will 
         </dependency>
       </dependencies>
     </project>
-```
