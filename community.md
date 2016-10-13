@@ -72,6 +72,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |--------------------------------------------------------------------|-------------------|--------------------|------------|
 |<img src="img/team/inci_cetindil.jpg" width="100" height="100">     | Inci Cetindil     | UC Irvine          | icetindil  |
 |<img src="img/team/anonymous.jpg" width="100" height="100">         | Markus Dreseler   | HPI                | mrks       |
+|<img src="img/team/wenhai_li.jpg" width="100" height="100">         | Wenhai Li         | Wuhan University   | lwhay      |
 
 <hr/>
 
