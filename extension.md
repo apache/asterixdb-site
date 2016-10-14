@@ -38,6 +38,7 @@ Any dependencies specified in the BOM (as well as transitive dependencies) will 
       <groupId>org.apache.asterix</groupId>
       <artifactId>asterix-opt-bom</artifactId>
       <version>0.8.9-SNAPSHOT</version>
+      <packaging>pom</packaging>
       <name>psu-nittany-bom</name>
       <description>Penn State Nittany Lion Search Extension to AsterixDB</description>
 
@@ -48,7 +49,6 @@ Any dependencies specified in the BOM (as well as transitive dependencies) will 
           <groupId>edu.psu.cs</groupId>
           <artifactId>nittany-search</artifactId>
           <version>0.1.0-SNAPSHOT</version>
-          <packaging>pom</packaging>
         </dependency>
       </dependencies>
     </project>
