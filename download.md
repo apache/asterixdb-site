@@ -26,6 +26,30 @@ Feel free to browse and download the source tree of AsterixDB from our GitHub mi
 <div class="row">
 
 <div class="col-md-6" markdown="1">
+### Simple Server Package
+
+
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-6" markdown="1">
+This packaging is most suitable for running a sample cluster on a single machine or for a custom deployment.
+</div>
+
+<div class="col-md-6" markdown="1">
+
+<p><a class="btn btn-md btn-success" href="{{ site.STABLE_NCSERVICE_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="col-md-6" markdown="1">
 ### Standalone Cluster Installer
 
 
