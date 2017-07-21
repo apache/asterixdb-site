@@ -44,11 +44,10 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="img/team/ian_maxon.jpg" width="100" height="100">         | Ian Maxon         | UC Irvine          | imaxon     |
 |<img src="img/team/ildar_absalyamov.jpg" width="100" height="100">  | Ildar Absalyamov  | UC Riverside       | ildar      |
 |<img src="img/team/jianfeng_jia.jpg" width="100" height="100">      | Jianfeng Jia      | UC Irvine          | jianfeng   |
-|<img src="img/team/anonymous.jpg" width="100" height="100">         | Jochen Wiedmann   | Software AG        | jochen     |
 |<img src="img/team/keren_ouaknine.jpg" width="100" height="100">    | Keren Ouaknine    | Hebrew University  | kereno     |
 |<img src="img/team/michael_blow.jpg" width="100" height="100">      | Michael Blow      | Couchbase          | mblow      |
 |<img src="img/team/michael_carey.jpg" width="100" height="100">     | Michael Carey     | UC Irvine          | dtabass    |
-|<img src="img/team/murtadha_hubail.jpg" width="100" height="100">   | Murtadha Hubail   | Saudi Aramco       | mhubail    |
+|<img src="img/team/murtadha_hubail.jpg" width="100" height="100">   | Murtadha Hubail   | Couchbase          | mhubail    |
 |<img src="img/team/pouria_pirzadeh.jpg" width="100" height="100">   | Pouria Pirzadeh   | UC Irvine          | pouria     |
 |<img src="img/team/anonymous.jpg" width="100" height="100">         | Preston Carman    | UC Riverside       | prestonc   |
 |<img src="img/team/raman_grover.jpg" width="100" height="100">      | Raman Grover      | Microsoft Research | raman      |
@@ -70,9 +69,11 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 {:.table .table-striped}
 |                                                                    | Name              | Organization       | Apache ID  |
 |--------------------------------------------------------------------|-------------------|--------------------|------------|
-|<img src="img/team/inci_cetindil.jpg" width="100" height="100">     | Inci Cetindil     | UC Irvine          | icetindil  |
-|<img src="img/team/anonymous.jpg" width="100" height="100">         | Markus Dreseler   | HPI                | mrks       |
+|<img src="img/team/anonymous.jpg" width="100" height="100">         | Chen Luo          | UC Irvine          | luochen    |
+|<img src="img/team/anonymous.jpg" width="100" height="100">         | Dmitry Lychagin   | Couchbase          | dlych      |
+|<img src="img/team/anonymous.jpg" width="100" height="100">         | Wail Alkowaileet  | KACST Saudi Arabia | wyk        |
 |<img src="img/team/wenhai_li.jpg" width="100" height="100">         | Wenhai Li         | Wuhan University   | lwhay      |
+|<img src="img/team/anonymous.jpg" width="100" height="100">         | Xikui Wang        | UC Irvine          | xikui      |
 
 <hr/>
 
@@ -82,4 +83,3 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |                                                                    | Name              | Organization       |
 |--------------------------------------------------------------------|-------------------|--------------------|
 |<img src="img/team/eugenia_gabrielova.jpg" width="100" height="100">| Eugenia Gabrielova| UC Irvine          |
-|<img src="img/team/anonymous.jpg" width="100" height="100">         | Wail Alkowaileet  | KACST Saudi Arabia |
