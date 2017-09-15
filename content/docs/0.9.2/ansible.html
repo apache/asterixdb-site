@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20170914" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>AsterixDB &#x2013; HTTP API to AsterixDB</title>
+    <title>AsterixDB &#x2013; </title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.0.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -79,12 +79,10 @@
         Option 1: using NCService</a>
             </li>
                   
-      <li>
+      <li class="active">
     
-                          <a href="ansible.html" title="Option 2: using Ansible">
-          <i class="none"></i>
-        Option 2: using Ansible</a>
-            </li>
+            <a href="#"><i class="none"></i>Option 2: using Ansible</a>
+          </li>
                   
       <li>
     
@@ -161,10 +159,12 @@
             </li>
                               <li class="nav-header">API/SDK</li>
                                 
-      <li class="active">
+      <li>
     
-            <a href="#"><i class="none"></i>HTTP API</a>
-          </li>
+                          <a href="api.html" title="HTTP API">
+          <i class="none"></i>
+        HTTP API</a>
+            </li>
                   
       <li>
     
@@ -251,205 +251,169 @@
  ! KIND, either express or implied.  See the License for the
  ! specific language governing permissions and limitations
  ! under the License.
- ! --><h1>HTTP API to AsterixDB</h1>
+ ! -->
+<ul>
+  
+<li><a href="#Introduction">Introduction</a></li>
+  
+<li><a href="#Prerequisites">Prerequisites</a></li>
+  
+<li><a href="#config">Cluster Configuration</a></li>
+  
+<li><a href="#lifecycle">Cluster Lifecycle Management</a></li>
+</ul>
+<!-- ! Licensed to the Apache Software Foundation (ASF) under one
+ ! or more contributor license agreements.  See the NOTICE file
+ ! distributed with this work for additional information
+ ! regarding copyright ownership.  The ASF licenses this file
+ ! to you under the Apache License, Version 2.0 (the
+ ! "License"); you may not use this file except in compliance
+ ! with the License.  You may obtain a copy of the License at
+ !
+ !   http://www.apache.org/licenses/LICENSE-2.0
+ !
+ ! Unless required by applicable law or agreed to in writing,
+ ! software distributed under the License is distributed on an
+ ! "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ! KIND, either express or implied.  See the License for the
+ ! specific language governing permissions and limitations
+ ! under the License.
+ ! -->
 <div class="section">
-<h2><a name="Table_of_Contents"></a><a name="toc" id="toc">Table of Contents</a></h2>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p>This installation option provides several wrapped <a class="externalLink" href="https://www.ansible.com/">Ansible</a>-based scripts to deploy, start, stop, and erase an AsterixDB instance on a multi-node cluster without requiring users to interact with each individual node in the cluster.</p></div>
+<div class="section">
+<h2><a name="Prerequisites" id="Prerequisites">Prerequisites</a></h2>
 
 <ul>
   
-<li><a href="#queryservice">Query Service API</a></li>
+<li>
+<p>Supported operating systems: <b>Linux</b> and <b>MacOS</b></p></li>
   
-<li><a href="#querystatus">Query Status API</a></li>
+<li>
+<p>Install pip on your client machine:</p>
+<p>CentOS</p>
   
-<li><a href="#queryresult">Query Result API</a></li>
+<div class="source">
+<div class="source">
+<pre> $ sudo yum install python-pip
+</pre></div></div>
+<p>Ubuntu</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ sudo apt-get install python-pip
+</pre></div></div>
+<p>macOS</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ brew install pip
+</pre></div></div></li>
+  
+<li>
+<p>Install Ansible, boto, and boto3 on your client machine:</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ pip install ansible
+ $ pip install boto
+ $ pip install boto3
+</pre></div></div>
+<p>Note that you might need <tt>sudo</tt> depending on your system configuration.</p>
+<p><b>Make sure that the version of Ansible is no less than 2.2.1.0</b>:</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ ansible --version
+ ansible 2.2.1.0
+</pre></div></div></li>
+  
+<li>
+<p>Download the AsterixDB distribution package, unzip it, and navigate to <tt>opt/ansible/</tt></p>
+  
+<div class="source">
+<div class="source">
+<pre> $ cd opt/ansible
+</pre></div></div>
+<p>The following files and directories are in the directory <tt>opt/ansible</tt>:</p>
+  
+<div class="source">
+<div class="source">
+<pre> README  bin  conf  yaml
+</pre></div></div>
+<p><tt>bin</tt> contains scripts that deploy, start, stop and erase a multi-node AsterixDB cluster, according to  the configuration specified in files under <tt>conf</tt>, and <tt>yaml</tt> contains internal Ansible scripts that the shell  scripts in <tt>bin</tt> use.</p></li>
 </ul></div>
 <div class="section">
-<h2><a name="POST_queryservice_Back_to_TOC"></a><a name="queryservice" id="queryservice">POST /query/service</a><font size="4"> <a href="#toc">[Back to TOC]</a></font></h2>
-<p><b>Description</b> Returns result for query as JSON.  The response is a JSON object that contains some result metadata along with either an embedded result or an opaque  handle that can be used to navigate to the result (see the decription of the <tt>mode</tt> parameter for more details).</p>
-<p><b>Parameters</b></p>
+<h2><a name="Cluster_Configuration"></a><a name="config" id="config">Cluster Configuration</a></h2>
 
 <ul>
   
-<li><tt>statement</tt> - Specifies at least one valid SQL++ statement to run. The statements need to be urlencoded. Required.</li>
+<li>
+<p><b>Nodes and account</b>. Edit the inventory file <tt>conf/inventory</tt> when necessary.  You mostly only need to specify the node DNS names (or IPs) for the cluster controller, i.e., the master node,  in the <b>[cc]</b> section, and node controllers, i.e., slave nodes, in the <b>[ncs]</b> section.  The following example configures a cluster with two slave nodes (172.0.1.11 and 172.0.1.12) and  one master node (172.0.1.10).</p>
   
-<li><tt>pretty</tt> - If the parameter <tt>pretty</tt> is given with the value <tt>true</tt>, the result will be indented. (Optional)</li>
+<div class="source">
+<div class="source">
+<pre> [cc]
+ 172.0.1.10
+
+ [ncs]
+ 172.0.1.11
+ 172.0.1.12
+</pre></div></div>
+<p><b>Configure passwordless ssh from your current client that runs the scripts to all nodes listed  in <tt>conf/inventory</tt> as well as <tt>localhost</tt>.</b>  If the ssh user account for target machines is different from your current username, please uncomment  and edit the following two lines:</p>
   
-<li><tt>client_context_id</tt> - A user-defined sequence of characters that the API receives and returns unchanged. This can be  used e.g. to match individual requests, jobs, and responses. Another option could be to use it for groups of requests  if an application decides to put e.g. an group identifier into that field to route groups of responses to a  particular response processor.</li>
+<div class="source">
+<div class="source">
+<pre> ;[all:vars]
+ ;ansible_ssh_user=&lt;fill with your ssh account username&gt;
+</pre></div></div>
+<p>If you want to specify advanced Ansible builtin variables, please refer to the  <a class="externalLink" href="http://docs.ansible.com/ansible/intro_inventory.html">Ansible documentation</a>.</p></li>
   
-<li><tt>mode</tt> - Result delivery mode. Possible values are <tt>immediate</tt>, <tt>deferred</tt>, <tt>async</tt> (default: <tt>immediate</tt>).  If the delivery mode is <tt>immediate</tt> the query result is returned with the response.  If the delivery mode is <tt>deferred</tt> the response contains a handle to the <a href="#queryresult">result</a>.  If the delivery mode is <tt>async</tt> the response contains a handle to the query&#x2019;s <a href="#querystatus">status</a>.</li>
-</ul>
-<p><b>Command (immediate result delivery)</b></p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v --data-urlencode &quot;statement=select 1;&quot; \
-          --data pretty=true                     \
-          --data client_context_id=xyz           \
-          http://localhost:19002/query/service
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; POST /query/service HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt; Content-Length: 57
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;requestID&quot;: &quot;5f72e78c-482a-45bf-b174-6443c8273025&quot;,
-    &quot;clientContextID&quot;: &quot;xyz&quot;,
-    &quot;signature&quot;: &quot;*&quot;,
-    &quot;results&quot;: [ {
-        &quot;$1&quot; : 1
-    } ]
-    ,
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;metrics&quot;: {
-        &quot;elapsedTime&quot;: &quot;20.263371ms&quot;,
-        &quot;executionTime&quot;: &quot;19.889389ms&quot;,
-        &quot;resultCount&quot;: 1,
-        &quot;resultSize&quot;: 15
-    }
-}
-</pre></div></div>
-<p><b>Command (<a name="deferred" id="deferred">deferred result delivery</a>)</b></p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v --data-urlencode &quot;statement=select 1;&quot; \
-          --data mode=deferred                   \
-          http://localhost:19002/query/service
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; POST /query/service HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt; Content-Length: 37
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;requestID&quot;: &quot;6df7afb4-5f83-49b6-8c4b-f11ec84c4d7e&quot;,
-    &quot;signature&quot;: &quot;*&quot;,
-    &quot;handle&quot;: &quot;http://localhost:19002/query/service/result/7-0&quot;,
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;metrics&quot;: {
-        &quot;elapsedTime&quot;: &quot;12.270570ms&quot;,
-        &quot;executionTime&quot;: &quot;11.948343ms&quot;,
-        &quot;resultCount&quot;: 0,
-        &quot;resultSize&quot;: 0
-    }
-}
-</pre></div></div>
-<p><b>Command (<a name="async" id="async>">async result delivery</a>)</b></p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v --data-urlencode &quot;statement=select 1;&quot; \
-          --data mode=async                      \
-          http://localhost:19002/query/service
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; POST /query/service HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt; Content-Length: 34
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;requestID&quot;: &quot;c5858420-d821-4c0c-81a4-2364386827c2&quot;,
-    &quot;signature&quot;: &quot;*&quot;,
-    &quot;status&quot;: &quot;running&quot;,
-    &quot;handle&quot;: &quot;http://localhost:19002/query/service/status/9-0&quot;,
-    &quot;metrics&quot;: {
-        &quot;elapsedTime&quot;: &quot;9.727006ms&quot;,
-        &quot;executionTime&quot;: &quot;9.402282ms&quot;,
-        &quot;resultCount&quot;: 0,
-        &quot;resultSize&quot;: 0
-    }
-}
-</pre></div></div></div>
+<li>
+<p><b>Remote working directories</b>. Edit <tt>conf/instance_settings.yml</tt> to change the remote binary directory  (the variable &#x201c;binarydir&#x201d;) when necessary. By default, the binary directory will be under the home directory  (as the value of Ansible builtin variable ansible_env.HOME) of the ssh user account on each node.</p></li>
+</ul></div>
 <div class="section">
-<h2><a name="GET_queryservicestatus_Back_to_TOC"></a><a name="querystatus" id="querystatus">GET /query/service/status</a><font size="4"> <a href="#toc">[Back to TOC]</a></font></h2>
-<p><b>Description</b> Returns status of an <tt>async</tt> query request.  The response is a JSON object that has a similar structure to the responses for the <a href="#queryservice">/query/service</a> endpoint.  Possible status values for the status are <tt>running</tt>, <tt>success</tt>, <tt>timeout</tt>, <tt>failed</tt>, and <tt>fatal</tt>.  If the status value is <tt>success</tt>, the response also contains a handle to the <a href="#queryresult">result</a>.  URLs for this endpoint are usually not constructed by the application, they are simply extracted from the <tt>handle</tt>  field of the response to a request to the <a href="#queryservice">/query/service</a> endpoint.</p>
-<p><b>Command</b></p>
-<p>This example shows a request/reponse for the (opaque) status handle that was returned by the <a href="#async">async  result delivery</a> example.</p>
+<h2><a name="Cluster_Lifecycle_Management"></a><a name="lifecycle" id="lifecycle">Cluster Lifecycle Management</a></h2>
 
+<ul>
+  
+<li>
+<p>Deploy the binary to all nodes:</p>
+  
 <div class="source">
 <div class="source">
-<pre>$ curl -v http://localhost:19002/query/service/status/9-0
+<pre> $ bin/deploy.sh
+</pre></div></div></li>
+  
+<li>
+<p>Every time before starting the AsterixDB cluster, you can edit the instance configuration file  <tt>conf/instance/cc.conf</tt>, except that IP addresses/DNS names are generated and cannot  be changed. All available parameters and their usage can be found <a href="ncservice.html#Parameters">here</a>.</p></li>
+  
+<li>
+<p>Launch your AsterixDB cluster:</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ bin/start.sh
 </pre></div></div>
-<p><b>Sample response</b></p>
-
+<p>Now you can use the multi-node AsterixDB cluster by opening the master node  listed in <tt>conf/inventory</tt> at port <tt>19001</tt> (which can be customized in <tt>conf/instance/cc.conf</tt>)  in your browser.</p></li>
+  
+<li>
+<p>If you want to stop the the multi-node AsterixDB cluster, run the following script:</p>
+  
 <div class="source">
 <div class="source">
-<pre>&gt; GET /query/service/status/9-0 HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;handle&quot;: &quot;http://localhost:19002/query/service/result/9-0&quot;
-}
-</pre></div></div></div>
-<div class="section">
-<h2><a name="GET_queryserviceresult_Back_to_TOC"></a><a name="queryresult" id="queryresult">GET /query/service/result</a><font size="4"> <a href="#toc">[Back to TOC]</a></font></h2>
-<p><b>Description</b> Returns result set for an <tt>async</tt> or <tt>deferred</tt> query request.  The response is a plain result without a wrapping JSON object.  URLs for this endpoint are usually not constructed by the application, they are simply extracted from the <tt>handle</tt>  field of the response to a request to the <a href="#queryservice">/query/service</a> or the <a href="#querystatus">/query/service/status</a> endpoint.</p>
-<p><b>Command</b></p>
-<p>This example shows a request/reponse for the (opaque) result handle that was returned by the <a href="#deferred">deferred result delivery</a> example.</p>
-
+<pre> $ bin/stop.sh
+</pre></div></div></li>
+  
+<li>
+<p>If you want to remove the binary on all nodes, run the following script:</p>
+  
 <div class="source">
 <div class="source">
-<pre>$ curl -v http://localhost:19002/query/service/result/7-0
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; GET /query/service/result/7-0 HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json
-&lt;
-[ { &quot;$1&quot;: 1 }
- ]
-</pre></div></div></div>
+<pre> $ bin/erase.sh
+</pre></div></div></li>
+</ul></div>
                   </div>
             </div>
           </div>

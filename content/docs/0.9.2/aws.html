@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20170914" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>AsterixDB &#x2013; HTTP API to AsterixDB</title>
+    <title>AsterixDB &#x2013; </title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.0.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -86,12 +86,10 @@
         Option 2: using Ansible</a>
             </li>
                   
-      <li>
+      <li class="active">
     
-                          <a href="aws.html" title="Option 3: using Amazon Web Services">
-          <i class="none"></i>
-        Option 3: using Amazon Web Services</a>
-            </li>
+            <a href="#"><i class="none"></i>Option 3: using Amazon Web Services</a>
+          </li>
                   
       <li>
     
@@ -161,10 +159,12 @@
             </li>
                               <li class="nav-header">API/SDK</li>
                                 
-      <li class="active">
+      <li>
     
-            <a href="#"><i class="none"></i>HTTP API</a>
-          </li>
+                          <a href="api.html" title="HTTP API">
+          <i class="none"></i>
+        HTTP API</a>
+            </li>
                   
       <li>
     
@@ -251,205 +251,251 @@
  ! KIND, either express or implied.  See the License for the
  ! specific language governing permissions and limitations
  ! under the License.
- ! --><h1>HTTP API to AsterixDB</h1>
+ ! -->
+<ul>
+  
+<li><a href="#Introduction">Introduction</a></li>
+  
+<li><a href="#Prerequisites">Prerequisites</a></li>
+  
+<li><a href="#config">Cluster Configuration</a></li>
+  
+<li><a href="#lifecycle">Cluster Lifecycle Management</a> <!-- ! Licensed to the Apache Software Foundation (ASF) under one
+ ! or more contributor license agreements.  See the NOTICE file
+ ! distributed with this work for additional information
+ ! regarding copyright ownership.  The ASF licenses this file
+ ! to you under the Apache License, Version 2.0 (the
+ ! "License"); you may not use this file except in compliance
+ ! with the License.  You may obtain a copy of the License at
+ !
+ !   http://www.apache.org/licenses/LICENSE-2.0
+ !
+ ! Unless required by applicable law or agreed to in writing,
+ ! software distributed under the License is distributed on an
+ ! "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ! KIND, either express or implied.  See the License for the
+ ! specific language governing permissions and limitations
+ ! under the License.
+ ! --></li>
+</ul>
 <div class="section">
-<h2><a name="Table_of_Contents"></a><a name="toc" id="toc">Table of Contents</a></h2>
+<h2><a name="Introduction" id="Introduction">Introduction</a></h2>
+<p>Note that you can always manually launch a number of Amazon Web Services EC2 instances and then run the  Ansible cluster installation scripts as described <a href="ansible.html">here</a> separately to manage the  lifecycle of an AsterixDB cluster on those EC2 instances.</p>
+<p>However, via this installation option, we provide a combo solution for automating both AWS EC2  and AsterixDB, where you can run only one script to deploy, start, stop, and terminate  an AsterixDB cluster on AWS.</p></div>
+<div class="section">
+<h2><a name="Prerequisites" id="Prerequisites">Prerequisites</a></h2>
 
 <ul>
   
-<li><a href="#queryservice">Query Service API</a></li>
+<li>
+<p>Supported operating systems for the client: <b>Linux</b> and <b>MacOS</b></p></li>
   
-<li><a href="#querystatus">Query Status API</a></li>
+<li>
+<p>Supported operating systems for Amazon Web Services instances: <b>Linux</b></p></li>
   
-<li><a href="#queryresult">Query Result API</a></li>
+<li>
+<p>Install pip on your client machine:</p>
+<p>CentOS</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ sudo yum install python-pip
+</pre></div></div>
+<p>Ubuntu</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ sudo apt-get install python-pip
+</pre></div></div>
+<p>macOS</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ brew install pip
+</pre></div></div></li>
+  
+<li>
+<p>Install Ansible, boto, and boto3 on your client machine:</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ pip install ansible
+ $ pip install boto
+ $ pip install boto3
+</pre></div></div>
+<p>Note that you might need <tt>sudo</tt> depending on your system configuration.</p>
+<p><b>Make sure that the version of Ansible is no less than 2.2.1.0</b>:</p>
+  
+<div class="source">
+<div class="source">
+<pre> $ ansible --version
+ ansible 2.2.1.0
+</pre></div></div>
+<p><b>For users with macOS 10.11+</b>, please create a user-level Ansible configuration file at:</p>
+  
+<div class="source">
+<div class="source">
+<pre> ~/.ansible.cfg
+</pre></div></div>
+<p>and add the following configuration:</p>
+  
+<div class="source">
+<div class="source">
+<pre> [ssh_connection]
+ control_path = %(directory)s/%%C
+</pre></div></div></li>
+  
+<li>
+<p>Download the AsterixDB distribution package, unzip it, navigate to <tt>opt/aws/</tt></p>
+  
+<div class="source">
+<div class="source">
+<pre> $ cd opt/aws
+</pre></div></div>
+<p>The following files and directories are in the directory <tt>opt/aws</tt>:</p>
+  
+<div class="source">
+<div class="source">
+<pre> README  bin  conf  yaml
+</pre></div></div>
+<p><tt>bin</tt> contains scripts that start and terminate an AWS-based cluster instance, according to the configuration  specified in files under <tt>conf</tt>, and <tt>yaml</tt> contains internal Ansible scripts that the shell scripts in <tt>bin</tt> use.</p></li>
+  
+<li>
+<p>Create an AWS account and an IAM user.</p>
+<p>Set up a security group that you&#x2019;d like to use for your AWS cluster.  <b>The security group should at least allow all TCP connections from anywhere.</b>  Provide the name of the security group as the value for the <tt>group</tt> field in <tt>conf/aws_settings.yml</tt>.</p></li>
+  
+<li>
+<p>Retrieve your AWS EC2 key pair name and use that as the <tt>keypair</tt> in <tt>conf/aws_settings.yml</tt>;</p>
+<p>retrieve your AWS IAM <tt>access key ID</tt> and use that as the <tt>access_key_id</tt> in <tt>conf/aws_settings.yml</tt>;</p>
+<p>retrieve your AWS IAM <tt>secret access key</tt> and use that as the <tt>secret_access_key</tt> in <tt>conf/aws_settings.yml</tt>.</p>
+<p>Note that you can only read or download <tt>access key ID</tt> and <tt>secret access key</tt> once from your AWS console.  If you forget them, you have to create new keys and delete the old ones.</p></li>
+  
+<li>
+<p>Configure your ssh setting by editing <tt>~/.ssh/config</tt> and adding the following entry:</p>
+  
+<div class="source">
+<div class="source">
+<pre> Host *.amazonaws.com
+      IdentityFile &lt;path_of_private_key&gt;
+</pre></div></div>
+<p>Note that &lt;path_of_private_key&gt; should be replaced by the path to the file that stores the private key for the  key pair that you uploaded to AWS and used in <tt>conf/aws_settings</tt>. For example:</p>
+  
+<div class="source">
+<div class="source">
+<pre> Host *.amazonaws.com
+      IdentityFile ~/.ssh/id_rsa
+</pre></div></div></li>
 </ul></div>
 <div class="section">
-<h2><a name="POST_queryservice_Back_to_TOC"></a><a name="queryservice" id="queryservice">POST /query/service</a><font size="4"> <a href="#toc">[Back to TOC]</a></font></h2>
-<p><b>Description</b> Returns result for query as JSON.  The response is a JSON object that contains some result metadata along with either an embedded result or an opaque  handle that can be used to navigate to the result (see the decription of the <tt>mode</tt> parameter for more details).</p>
-<p><b>Parameters</b></p>
+<h2><a name="Cluster_Configuration"></a><a name="config" id="config">Cluster Configuration</a></h2>
 
 <ul>
   
-<li><tt>statement</tt> - Specifies at least one valid SQL++ statement to run. The statements need to be urlencoded. Required.</li>
+<li>
+<p><b>AWS settings</b>. Edit <tt>conf/instance_settings.yml</tt>. The meaning of each parameter is listed as follows:</p>
   
-<li><tt>pretty</tt> - If the parameter <tt>pretty</tt> is given with the value <tt>true</tt>, the result will be indented. (Optional)</li>
+<div class="source">
+<div class="source">
+<pre> # The OS image id for ec2 instances.
+ image: ami-76fa4116
+
+ # The data center region for ec2 instances.
+ region: us-west-2
+
+ # The tag for each ec2 machine. Use different tags for isolation.
+ tag: scale_test
+
+ # The name of a security group that appears in your AWS console.
+ group: default
+
+ # The name of a key pair that appears in your AWS console.
+ keypair: &lt;to be filled&gt;
+
+ # The AWS access key id for your IAM user.
+ access_key_id: &lt;to be filled&gt;
+
+ # The AWS secret key for your IAM user.
+ secret_access_key: &lt;to be filled&gt;
+
+ # The AWS instance type. A full list of available types are listed at:
+ # https://aws.amazon.com/ec2/instance-types/
+ instance_type: t2.micro
+
+ # The number of ec2 instances that construct a cluster.
+ count: 3
+
+ # The user name.
+ user: ec2-user
+
+ # Whether to reuse one slave machine to host the master process.
+ cc_on_nc: false
+</pre></div></div>
+<p><b>As described in <a href="#Prerequisites">prerequisites</a>, the following parameters must be customized:</b></p>
   
-<li><tt>client_context_id</tt> - A user-defined sequence of characters that the API receives and returns unchanged. This can be  used e.g. to match individual requests, jobs, and responses. Another option could be to use it for groups of requests  if an application decides to put e.g. an group identifier into that field to route groups of responses to a  particular response processor.</li>
+<div class="source">
+<div class="source">
+<pre> # The tag for each ec2 machine. Use different tags for isolation.
+ tag: scale_test
+
+ # The name of a security group that appears in your AWS console.
+ group: default
+
+ # The name of a key pair that appears in your AWS console.
+ keypair: &lt;to be filled&gt;
+
+ # The AWS access key id for your IAM user.
+ access_key_id: &lt;to be filled&gt;
+
+ # The AWS secrety key for your IAM user.
+ secret_access_key: &lt;to be filled&gt;
+</pre></div></div></li>
   
-<li><tt>mode</tt> - Result delivery mode. Possible values are <tt>immediate</tt>, <tt>deferred</tt>, <tt>async</tt> (default: <tt>immediate</tt>).  If the delivery mode is <tt>immediate</tt> the query result is returned with the response.  If the delivery mode is <tt>deferred</tt> the response contains a handle to the <a href="#queryresult">result</a>.  If the delivery mode is <tt>async</tt> the response contains a handle to the query&#x2019;s <a href="#querystatus">status</a>.</li>
-</ul>
-<p><b>Command (immediate result delivery)</b></p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v --data-urlencode &quot;statement=select 1;&quot; \
-          --data pretty=true                     \
-          --data client_context_id=xyz           \
-          http://localhost:19002/query/service
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; POST /query/service HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt; Content-Length: 57
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;requestID&quot;: &quot;5f72e78c-482a-45bf-b174-6443c8273025&quot;,
-    &quot;clientContextID&quot;: &quot;xyz&quot;,
-    &quot;signature&quot;: &quot;*&quot;,
-    &quot;results&quot;: [ {
-        &quot;$1&quot; : 1
-    } ]
-    ,
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;metrics&quot;: {
-        &quot;elapsedTime&quot;: &quot;20.263371ms&quot;,
-        &quot;executionTime&quot;: &quot;19.889389ms&quot;,
-        &quot;resultCount&quot;: 1,
-        &quot;resultSize&quot;: 15
-    }
-}
-</pre></div></div>
-<p><b>Command (<a name="deferred" id="deferred">deferred result delivery</a>)</b></p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v --data-urlencode &quot;statement=select 1;&quot; \
-          --data mode=deferred                   \
-          http://localhost:19002/query/service
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; POST /query/service HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt; Content-Length: 37
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;requestID&quot;: &quot;6df7afb4-5f83-49b6-8c4b-f11ec84c4d7e&quot;,
-    &quot;signature&quot;: &quot;*&quot;,
-    &quot;handle&quot;: &quot;http://localhost:19002/query/service/result/7-0&quot;,
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;metrics&quot;: {
-        &quot;elapsedTime&quot;: &quot;12.270570ms&quot;,
-        &quot;executionTime&quot;: &quot;11.948343ms&quot;,
-        &quot;resultCount&quot;: 0,
-        &quot;resultSize&quot;: 0
-    }
-}
-</pre></div></div>
-<p><b>Command (<a name="async" id="async>">async result delivery</a>)</b></p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v --data-urlencode &quot;statement=select 1;&quot; \
-          --data mode=async                      \
-          http://localhost:19002/query/service
-</pre></div></div>
-<p><b>Sample response</b></p>
-
-<div class="source">
-<div class="source">
-<pre>&gt; POST /query/service HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt; Content-Length: 34
-&gt; Content-Type: application/x-www-form-urlencoded
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;requestID&quot;: &quot;c5858420-d821-4c0c-81a4-2364386827c2&quot;,
-    &quot;signature&quot;: &quot;*&quot;,
-    &quot;status&quot;: &quot;running&quot;,
-    &quot;handle&quot;: &quot;http://localhost:19002/query/service/status/9-0&quot;,
-    &quot;metrics&quot;: {
-        &quot;elapsedTime&quot;: &quot;9.727006ms&quot;,
-        &quot;executionTime&quot;: &quot;9.402282ms&quot;,
-        &quot;resultCount&quot;: 0,
-        &quot;resultSize&quot;: 0
-    }
-}
-</pre></div></div></div>
+<li>
+<p><b>Remote working directories</b>. Edit <tt>conf/instance_settings.yml</tt> to change the remote binary directory  (the variable &#x201c;binarydir&#x201d;) when necessary. By default, the binary directory will be under the home directory  (as the value of Ansible builtin variable ansible_env.HOME) of the ssh user account on each node.</p></li>
+</ul></div>
 <div class="section">
-<h2><a name="GET_queryservicestatus_Back_to_TOC"></a><a name="querystatus" id="querystatus">GET /query/service/status</a><font size="4"> <a href="#toc">[Back to TOC]</a></font></h2>
-<p><b>Description</b> Returns status of an <tt>async</tt> query request.  The response is a JSON object that has a similar structure to the responses for the <a href="#queryservice">/query/service</a> endpoint.  Possible status values for the status are <tt>running</tt>, <tt>success</tt>, <tt>timeout</tt>, <tt>failed</tt>, and <tt>fatal</tt>.  If the status value is <tt>success</tt>, the response also contains a handle to the <a href="#queryresult">result</a>.  URLs for this endpoint are usually not constructed by the application, they are simply extracted from the <tt>handle</tt>  field of the response to a request to the <a href="#queryservice">/query/service</a> endpoint.</p>
-<p><b>Command</b></p>
-<p>This example shows a request/reponse for the (opaque) status handle that was returned by the <a href="#async">async  result delivery</a> example.</p>
+<h2><a name="Cluster_Lifecycle_Management"></a><a name="lifecycle" id="lifecycle">Cluster Lifecycle Management</a></h2>
 
+<ul>
+  
+<li>
+<p>Allocate AWS EC2 nodes (the number of nodes is specified in <tt>conf/instance_settings.yml</tt>)  and deploy the binary to all allocated EC2 nodes:</p>
+  
 <div class="source">
 <div class="source">
-<pre>$ curl -v http://localhost:19002/query/service/status/9-0
+<pre> bin/deploy.sh
+</pre></div></div></li>
+  
+<li>
+<p>Before starting the AsterixDB cluster, you the instance configuration file <tt>conf/instance/cc.conf</tt>  can be modified with the exception of the IP addresses/DNS names which are are generated and cannot  be changed. All available parameters and their usage can be found <a href="ncservice.html#Parameters">here</a>.</p></li>
+  
+<li>
+<p>Launch your AsterixDB cluster on EC2:</p>
+  
+<div class="source">
+<div class="source">
+<pre> bin/start.sh
 </pre></div></div>
-<p><b>Sample response</b></p>
-
+<p>Now you can use the multi-node AsterixDB cluster on EC2 by by opening the master node  listed in <tt>conf/instance/inventory</tt> at port <tt>19001</tt> (which can be customized in <tt>conf/instance/cc.conf</tt>)  in your browser.</p></li>
+  
+<li>
+<p>If you want to stop the AWS-based AsterixDB cluster, run the following script:</p>
+  
 <div class="source">
 <div class="source">
-<pre>&gt; GET /query/service/status/9-0 HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json; charset=utf-8
-&lt;
-{
-    &quot;status&quot;: &quot;success&quot;,
-    &quot;handle&quot;: &quot;http://localhost:19002/query/service/result/9-0&quot;
-}
-</pre></div></div></div>
-<div class="section">
-<h2><a name="GET_queryserviceresult_Back_to_TOC"></a><a name="queryresult" id="queryresult">GET /query/service/result</a><font size="4"> <a href="#toc">[Back to TOC]</a></font></h2>
-<p><b>Description</b> Returns result set for an <tt>async</tt> or <tt>deferred</tt> query request.  The response is a plain result without a wrapping JSON object.  URLs for this endpoint are usually not constructed by the application, they are simply extracted from the <tt>handle</tt>  field of the response to a request to the <a href="#queryservice">/query/service</a> or the <a href="#querystatus">/query/service/status</a> endpoint.</p>
-<p><b>Command</b></p>
-<p>This example shows a request/reponse for the (opaque) result handle that was returned by the <a href="#deferred">deferred result delivery</a> example.</p>
-
-<div class="source">
-<div class="source">
-<pre>$ curl -v http://localhost:19002/query/service/result/7-0
+<pre> bin/stop.sh
 </pre></div></div>
-<p><b>Sample response</b></p>
-
+<p>Note that this only stops AsterixDB but does not stop the EC2 nodes.</p></li>
+  
+<li>
+<p>If you want to terminate the EC2 nodes that run the AsterixDB cluster, run the following script:</p>
+  
 <div class="source">
 <div class="source">
-<pre>&gt; GET /query/service/result/7-0 HTTP/1.1
-&gt; Host: localhost:19002
-&gt; User-Agent: curl/7.43.0
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; transfer-encoding: chunked
-&lt; connection: keep-alive
-&lt; content-type: application/json
-&lt;
-[ { &quot;$1&quot;: 1 }
- ]
-</pre></div></div></div>
+<pre> bin/terminate.sh
+</pre></div></div>
+<p><b>Note that it will destroy everything in the AsterixDB cluster you installed and terminate all EC2 nodes  for the cluster.</b></p></li>
+</ul></div>
                   </div>
             </div>
           </div>
