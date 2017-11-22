@@ -2,6 +2,8 @@
 title: Download
 ---
 
+Please note that version 0.9.2 requires Java 8; Java 9 will not work.
+
 <div class="row">
 <div class="col-md-6" markdown="1">
 ### Source
