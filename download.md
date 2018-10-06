@@ -2,8 +2,6 @@
 title: Download
 ---
 
-Please note that version 0.9.2 requires Java 8; Java 9 will not work.
-
 <div class="row">
 <div class="col-md-6" markdown="1">
 ### Source
@@ -43,55 +41,6 @@ This packaging is most suitable for running a sample cluster on a single machine
 <div class="col-md-6" markdown="1">
 
 <p><a class="btn btn-md btn-success" href="{{ site.STABLE_NCSERVICE_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
-
-</div>
-
-</div>
-
-
-<div class="row">
-
-<div class="col-md-6" markdown="1">
-### Standalone Cluster Installer
-
-
-</div>
-</div>
-
-<div class="row">
-
-<div class="col-md-6" markdown="1">
-This packaging is most suitable for installation on a cluster without Hadoop or YARN.
-</div>
-
-<div class="col-md-6" markdown="1">
-
-<p><a class="btn btn-md btn-success" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
-
-</div>
-
-</div>
-
-
-<div class="row">
-
-
-<div class="col-md-6" markdown="1">
-### YARN Cluster Installer
-
-
-</div>
-</div>
-
-<div class="row">
-
-<div class="col-md-6" markdown="1">
-This is AsterixDB packaged with the YARN installer. If you already have a cluster running Hadoop YARN, this is the easiest way to start out with AsterixDB.
-</div>
-
-<div class="col-md-6" markdown="1">
-
-<p><a class="btn btn-md btn-success" href="{{ site.STABLE_YARN_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
 
 </div>
 

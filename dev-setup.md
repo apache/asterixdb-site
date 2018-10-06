@@ -22,14 +22,6 @@ If you are a developer simply looking for a snapshot of the latest development v
 ### Server Package
 <p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_NCSERVICE_URL }}" role="button">Download AsterixDB {{ site.UNSTABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
 
-### Managix Installer
-<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.UNSTABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
-
-### YARN Installer
-<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_YARN_URL }}" role="button">Download AsterixDB {{ site.UNSTABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
-
-
-
 ---
 
 ## Setting up an Asterix Development environment
