@@ -60,6 +60,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="img/team/vinayak_borkar.jpg" width="100" height="100">    | Vinayak Borkar    | X15 Software       | vinayakb   |
 |<img src="img/team/yingyi_bu.jpg" width="100" height="100">         | Yingyi Bu         | Couchbase          | buyingyi   |
 |<img src="img/team/young_seok_kim.jpg" width="100" height="100">    | Young-Seok Kim    | UC Irvine          | kisskys    |
+|<img src="img/team/xikui_wang.png" width="100" height="100">         | Xikui Wang        | UC Irvine          | xikui      |
 |<img src="img/team/zachary_heilbron.jpg" width="100" height="100">  | Zach Heilbron     | X15 Software       | zheilbron  |
 
 <hr/>
@@ -73,7 +74,6 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="img/team/anonymous.jpg" width="100" height="100">         | Dmitry Lychagin   | Couchbase          | dlych      |
 |<img src="img/team/anonymous.jpg" width="100" height="100">         | Wail Alkowaileet  | KACST Saudi Arabia | wyk        |
 |<img src="img/team/wenhai_li.jpg" width="100" height="100">         | Wenhai Li         | Wuhan University   | lwhay      |
-|<img src="img/team/anonymous.jpg" width="100" height="100">         | Xikui Wang        | UC Irvine          | xikui      |
 
 <hr/>
 
