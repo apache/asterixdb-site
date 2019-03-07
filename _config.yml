@@ -1,9 +1,9 @@
 url: ""
 name: "Apache AsterixDB"
 
-STABLE_VERSION: 0.9.4
+STABLE_VERSION: 0.9.4.1
 UNSTABLE_VERSION: 0.9.5-SNAPSHOT
-STABLE_NCSERVICE_URL: "http://www.apache.org/dyn/closer.lua/asterixdb/asterixdb-0.9.4/apache-asterixdb-0.9.4.zip"
+STABLE_NCSERVICE_URL: "http://www.apache.org/dyn/closer.lua/asterixdb/asterixdb-0.9.4.1/apache-asterixdb-0.9.4.1.zip"
 UNSTABLE_NCSERVICE_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-integration-tests/lastSuccessfulBuild/org.apache.asterix$asterix-server/artifact/org.apache.asterix/asterix-server/0.9.5-SNAPSHOT/asterix-server-0.9.5-SNAPSHOT-binary-assembly.zip"
 DOCS_BASE_URL: "docs"
 UNSTABLE_DOCS_BASE_URL: "https://ci.apache.org/projects/asterixdb/"
