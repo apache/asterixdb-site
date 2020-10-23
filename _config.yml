@@ -1,10 +1,10 @@
 url: ""
 name: "Apache AsterixDB"
 
-STABLE_VERSION: 0.9.5
-UNSTABLE_VERSION: 0.9.5-SNAPSHOT
-STABLE_NCSERVICE_URL: "http://www.apache.org/dyn/closer.lua/asterixdb/asterixdb-0.9.5/asterix-server-0.9.5-binary-assembly.zip"
-UNSTABLE_NCSERVICE_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-integration-tests/lastSuccessfulBuild/org.apache.asterix$asterix-server/artifact/org.apache.asterix/asterix-server/0.9.5-SNAPSHOT/asterix-server-0.9.5-SNAPSHOT-binary-assembly.zip"
+STABLE_VERSION: 0.9.6
+UNSTABLE_VERSION: 0.9.6-SNAPSHOT
+STABLE_NCSERVICE_URL: "http://www.apache.org/dyn/closer.lua/asterixdb/asterixdb-0.9.6/asterix-server-0.9.6-binary-assembly.zip"
+UNSTABLE_NCSERVICE_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-integration-tests/lastSuccessfulBuild/org.apache.asterix$asterix-server/artifact/org.apache.asterix/asterix-server/0.9.6-SNAPSHOT/asterix-server-0.9.6-SNAPSHOT-binary-assembly.zip"
 DOCS_BASE_URL: "docs"
 UNSTABLE_DOCS_BASE_URL: "https://ci.apache.org/projects/asterixdb/"
 
