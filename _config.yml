@@ -4,7 +4,7 @@ name: "Apache AsterixDB"
 STABLE_VERSION: 0.9.7.1
 UNSTABLE_VERSION: 0.9.7-SNAPSHOT
 STABLE_NCSERVICE_URL: "http://www.apache.org/dyn/closer.lua/asterixdb/asterixdb-0.9.7.1/asterix-server-0.9.7.1-binary-assembly.zip"
-UNSTABLE_NCSERVICE_URL: "https://ci-builds.apache.org/job/AsterixDB/job/asterixdb-snapshot-integration/lastSuccessfulBuild/artifact/asterixdb/asterix-server/target/asterix-server-0.9.7-SNAPSHOT-binary-assembly.zip"
+UNSTABLE_NCSERVICE_URL: "https://ci-builds.apache.org/job/AsterixDB/job/asterixdb-snapshot-integration/lastSuccessfulBuild/artifact/asterixdb/asterix-server/target/asterix-server-0.9.8-SNAPSHOT-binary-assembly.zip"
 DOCS_BASE_URL: "docs"
 UNSTABLE_DOCS_BASE_URL: "https://ci.apache.org/projects/asterixdb/"
 
