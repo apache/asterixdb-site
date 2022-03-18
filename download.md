@@ -45,3 +45,26 @@ This packaging is most suitable for running a sample cluster on a single machine
 </div>
 
 </div>
+<div class="row">
+
+<div class="col-md-6" markdown="1">
+### JDBC Drivers
+
+
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-6" markdown="1">
+These are JDBC and Tableau connectors for Apache AsterixDB. They are for use against an existing AsterixDB clusters.
+</div>
+
+
+
+<div class="col-md-6" markdown="1">
+<p><a class="btn btn-md btn-success" href="{{ site.STABLE_JDBC_URL}}" role="button">Download AsterixDB JDBC Driver {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
+<p><a class="btn btn-md btn-success" href="{{ site.STABLE_TACO_URL}}" role="button">Download AsterixDB Tableau Connector {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
+</div>
+
+</div>
