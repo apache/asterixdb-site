@@ -20,7 +20,7 @@ A great way to start contributing is to pick a bug labelled starter in JIRA and 
 If you are a developer simply looking for a snapshot of the latest development version of AsterixDB to test out your application that is based on top of AsterixDB, snapshots from the latest successful push to our master branch are available below. These are non ASF-release, automatic builds.
 
 ### Server Package
-<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_NCSERVICE_URL }}" role="button">Download AsterixDB {{ site.UNSTABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
+<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_NCSERVICE_URL }}" role="button">Download AsterixDB Dev Build <i class="fa fa-download fa-lg"></i> </a></p>
 
 ---
 
