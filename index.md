@@ -74,17 +74,13 @@ layout: default
 </div>
 
 <div class="row">
-  <div class="col-md-4">
-    <a class="twitter-timeline"  width="100%" href="https://twitter.com/ASTERIXUCI" data-widget-id="733118248380571648">Tweets by @ASTERIXUCI</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </div>
-  <div class="col-md-4" markdown="1">
+  <div class="col-md-6" markdown="1">
 ### Community and Support
 If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.apache.org). Check out the [Community]({{ site.url }}community.html) page for more details.
 
 If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing]({{ site.url }}dev-setup.html) page to learn more.
   </div>
-  <div class="col-md-4" markdown="1">
+  <div class="col-md-6" markdown="1">
 ### Download
    <p><a class="btn btn-md btn-success" href="{{ site.STABLE_NCSERVICE_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i></a>
       <a class="btn btn-md btn-info" href="https://github.com/apache/asterixdb/" role="button">GitHub <i class="fa fa-github fa-lg"></i></a></p>

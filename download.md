@@ -67,4 +67,28 @@ These are JDBC and Tableau connectors for Apache AsterixDB. They are for use aga
 <p><a class="btn btn-md btn-success" href="{{ site.STABLE_TACO_URL}}" role="button">Download AsterixDB Tableau Connector {{ site.STABLE_VERSION }} <i class="fa fa-download fa-lg"></i> </a></p>
 </div>
 
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6" markdown="1">
+### Nightly Build
+
+
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-6" markdown="1">
+This is a nightly build of the latest work in AsterixDB. This is intended for developers looking to work with the bleeding edge. Don't use this in production! Expect things to break. It is not vetted through the Apache release process, and is not an official release.
+</div>
+
+<div class="col-md-6" markdown="1">
+
+<p><a class="btn btn-md btn-warning" href="{{ site.UNSTABLE_NCSERVICE_URL }}" role="button">Download AsterixDB Dev Build <i class="fa fa-download fa-lg"></i> </a></p>
+
+</div>
+
 </div>
