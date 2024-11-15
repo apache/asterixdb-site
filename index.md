@@ -53,21 +53,6 @@ layout: default
   </div>
 </div>
 
-<div class="row">
-  <p></p>
-</div>
-
-<div class="row">
-  <div class="col-md-6 text-center">
-   	<h3 id="tech-talk">Tech Talk</h3>
-     	<iframe width="100%" src="https://www.youtube.com/embed/jIZRMi9rt2E" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="col-md-6 text-center">
-    <h3 id="query-demo">Query Demo</h3>
-    <iframe width="100%" src="https://www.youtube.com/embed/0FVipiyL-cQ" frameborder="0" allowfullscreen></iframe>
-  </div>
-</div>
-
 
 <div class="row">
   <p></p>
