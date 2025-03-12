@@ -26,12 +26,12 @@ layout: default
 
   <div class="col-md-4">
     <h3 id="flexible-data">Flexible Data</h3>
-    <img src="https://docs.google.com/drawings/d/1-0YZZz3XvOLEfMNhgt-Bf5jgscwHi3N4vVVg9d7hDnI/pub?w=394&amp;h=369" width="80%">
+    <img src="{{ site.url }}/img/flexible_data.png" width="80%">
   </div>
 
   <div class="col-md-4 text-center"> 
     <h3 id="architecture">Architecture</h3> 
-    <img src="https://docs.google.com/drawings/d/11X2RlI95SoWR5wLtnV7kG727uae6pbUPOnYjG9jm5c8/pub?w=720&amp;h=364" width="100%"> 
+    <img src="{{ site.url }}/img/nutshell_architecture.png" width="100%"> 
   </div>
 
 </div>
@@ -49,7 +49,7 @@ layout: default
 
   <div class="col-md-6 text-center">
   <h3 id="performance-highlights">Performance Highlights</h3>
-<a href="https://docs.google.com/spreadsheets/d/1PTtUUxijKWBS5CQU7lPEQEa7e8fp7n8Js0gq_tvittA/pubchart?oid=1652093339&amp;format=image"><img src="https://docs.google.com/spreadsheets/d/1PTtUUxijKWBS5CQU7lPEQEa7e8fp7n8Js0gq_tvittA/pubchart?oid=1652093339&amp;format=image" width="100%" /></a>
+<a href="https://docs.google.com/spreadsheets/d/1PTtUUxijKWBS5CQU7lPEQEa7e8fp7n8Js0gq_tvittA/pubchart?oid=1652093339&amp;format=image"><img src="{{ site.url }}/img/pubchart.png" width="100%" /></a>
   </div>
 </div>
 
