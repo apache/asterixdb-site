@@ -1,3 +1,10 @@
+github:
+  description: "Apache AsterixDB Website"
+  homepage: https://asterixdb.apache.org
+  labels:
+    - website
+    - jekyll
+
 publish:
   whoami: asf-site
 
